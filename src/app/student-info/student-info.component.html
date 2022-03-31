@@ -1,0 +1,122 @@
+<mat-stepper orientation="vertical" linear #stepper>
+    <mat-step [stepControl]="firstFormGroup" [completed]="eligibleForScholorship">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel><span class="steplabel">Login using your Aadhaar</span></ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Aadhaar Number</mat-label>
+          <input #aadhaarNumber matInput placeholder="____-____-____-____" formControlName="firstCtrl" mask="0000-0000-0000-0000" required>
+          <mat-error>Please enter a valid Aadhaar Number</mat-error>
+        </mat-form-field>
+        <div>
+            <div [hidden]="!sendingOtp"><mat-spinner></mat-spinner></div>
+            <div [hidden]="sendingOtp">
+                <button mat-raised-button color="primary" (click)="sendOtp();" [disabled]="!firstFormGroup.valid || timeLeft > 0">
+                    <span [hidden]="otpSent">Send OTP</span>
+                    <span [hidden]="!otpSent">Resend OTP</span>
+                </button>
+                <span [hidden]="!(otpSent || timeLeft > 0)"> will be enabled after <span class="numberCircle">{{timeLeft}}</span>seconds</span>
+            </div>
+        </div>
+    </form>
+    <form [formGroup]="otpFormGroup">
+        <div [hidden]="!otpSent">
+        <mat-form-field appearance="fill">
+            <mat-label>OTP</mat-label>
+            <input 
+                #secondCtrl
+                matInput 
+                placeholder="__ __ __ __ __ __" 
+                formControlName="secondCtrl" 
+                mask="000000" 
+                required autocomplete="off" 
+                autofocus
+                >
+                <mat-error>Please enter a valid OTP</mat-error>
+        </mat-form-field>
+        <div [hidden]="verifyingOtp">
+            <button 
+                mat-button mat-raised-button 
+                color="primary" 
+                [disabled]="!otpFormGroup.valid"
+                (click)="verifyOtp(stepper)"
+                >Verify OTP</button>
+        </div>
+        <div [hidden]="!verifyingOtp"><mat-spinner></mat-spinner></div>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel><span class="steplabel">Validate your institution</span></ng-template>
+        <div class="mat-h2">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p>Welcome Selvi <b><u>Thamizh Mozhi! </u></b></p>
+
+            <p style="color:green"><b><u>You are eligible for the Scholarship!</u></b></p>
+
+            <p class="mat-h3">As per our records, your are currently studying at </p>
+            
+            <p class="mat-h1" style="color:orange">Government Arts College, Tiruchirappalli. </p>
+
+            <p class="mat-h3"> If incorrect, please contact your institution administrator to correct your details before enrolling.</p>
+
+        </div>
+        <div>
+          <button mat-button mat-raised-button matStepperNext color="primary">Proceed to enroll</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel><span class="steplabel">Provide bank details</span></ng-template>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>IFSC Code</mat-label>
+                <input matInput formControlName="firstCtrl" required mask="SSSS0000000">
+                <mat-icon matSuffix (click)="fetchIfscInfo()">search</mat-icon>
+            </mat-form-field>
+        </div>
+        <div [hidden]="!ifscFetching"><mat-spinner></mat-spinner></div>
+        <div [hidden]="bankName == ''">
+            <div [attr.disabled]="true">
+                <mat-form-field appearance="fill">
+                <mat-label>Bank Name</mat-label>
+                <input matInput formControlName="bankNameCtrl" readonly [value]="bankName">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Account number</mat-label>
+                    <input #accountNumber matInput formControlName="thirdCtrl" type="password" mask="AAAAAAAAAA999999" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Re-enter account number</mat-label>
+                    <input matInput formControlName="forthCtrl" mask="AAAAAAAAAA999999" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                <mat-label>Account Name</mat-label>
+                <input matInput formControlName="fifthCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-button mat-raised-button color="primary" (click)="saveBankDetails(stepper)" [disabled]="savingBankDetails" >Save</button>
+            </div>
+            <div [hidden]="!savingBankDetails" style="margin-top:20px"><mat-spinner></mat-spinner></div>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel><span class="steplabel">Done</span></ng-template>
+        <div class="done">
+            <p><span style="color:green"><b>Dear Selvi Thamizh Mozhi, thank you for enrolling!</b></span></p>
+            <p>You have successfully enrolled into the scheme as on 30th March, 2022.</p>
+            <p>Please reach out to your institution administrator for any further assistance or queries!</p>
+            <p>You may logout or close the browser!</p>
+            <button mat-button mat-raised-button color="primary" (click)="logout(stepper)">Logout</button>
+        </div>
+    </mat-step>
+  </mat-stepper>

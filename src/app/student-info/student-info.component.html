@@ -1,12 +1,20 @@
-<div class="mat-h2">If you are already enrolled, you can login to update your bank information.</div> 
-
-<mat-stepper orientation="vertical" linear #stepper>
+<div class="stepper-header"><b>Students Registration</b></div>
+<mat-divider></mat-divider>
+<mat-stepper linear #stepper (selectionChange)="onChange($event)">
     <mat-step [stepControl]="firstFormGroup" [completed]="eligibleForScholorship">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel><span class="steplabel">Login using your Aadhaar</span></ng-template>
-        <mat-form-field appearance="fill">
+        <mat-form-field #aadhaarNumber appearance="fill">
           <mat-label>Aadhaar Number</mat-label>
-          <input #aadhaarNumber matInput placeholder="____-____-____-____" formControlName="firstCtrl" mask="0000-0000-0000-0000" required>
+          <input 
+            class="mat-h1" 
+            #aadhaarNumber 
+            matInput 
+            placeholder="____-____-____-____" 
+            formControlName="firstCtrl" 
+            mask="0000-0000-0000-0000" 
+            autofocus
+            required>
           <mat-error>Please enter a valid Aadhaar Number</mat-error>
         </mat-form-field>
         <div [hidden]="!otpSent">OTP is sent to your mobile nuber XXX-XXX-3456</div>
@@ -34,7 +42,6 @@
                 formControlName="secondCtrl" 
                 mask="000000" 
                 required autocomplete="off" 
-                autofocus
                 >
                 <mat-error>Please enter a valid OTP</mat-error>
         </mat-form-field>
@@ -72,40 +79,74 @@
         </div>
     </mat-step>
     <mat-step [stepControl]="thirdFormGroup">
-      <form [formGroup]="thirdFormGroup">
+      <div class="mat-h2">We will require your bank details to enroll you for scholarship.</div>
+      <form [formGroup]="thirdFormGroup" >
         <ng-template matStepLabel><span class="steplabel">Provide bank details</span></ng-template>
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>IFSC Code</mat-label>
-                <input matInput formControlName="firstCtrl" required mask="SSSS0000000">
-                <mat-icon matSuffix (click)="fetchIfscInfo()">search</mat-icon>
+                <input
+                    id="ifscCode"
+                    autofocus 
+                    matInput 
+                    formControlName="firstCtrl" 
+                    required 
+                    mask="SSSS0000000" 
+                    (focusout)="fetchIfscInfo()">
+                <mat-icon matSuffix (click)="fetchIfscInfo();forthFormDirective.resetForm();forthFormGroup.reset();">search</mat-icon>
+                <mat-error>Please enter a valid IFSC code</mat-error>
             </mat-form-field>
         </div>
+      </form>
+      <form [formGroup]="forthFormGroup" #forthFormDirective="ngForm">
         <div [hidden]="!ifscFetching"><mat-spinner></mat-spinner></div>
-        <div [hidden]="bankName == ''">
+        <div>
             <div [attr.disabled]="true">
                 <mat-form-field appearance="fill">
                 <mat-label>Bank Name</mat-label>
-                <input matInput formControlName="bankNameCtrl" readonly [value]="bankName">
+                <input matInput readonly [value]="bankName">
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" >
                     <mat-label>Account number</mat-label>
-                    <input #accountNumber matInput formControlName="thirdCtrl" type="password" mask="AAAAAAAAAA999999" required>
+                    <input 
+                        #accountNumber 
+                        matInput 
+                        formControlName="thirdCtrl" 
+                        type="password" 
+                        mask="AAAAAAAAAA999999" 
+                        [readonly]="bankName == ''"
+                        required>
+                    <mat-error>Please enter a valid Account number</mat-error>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="fill">
                     <mat-label>Re-enter account number</mat-label>
-                    <input matInput formControlName="forthCtrl" mask="AAAAAAAAAA999999" required>
+                    <input 
+                        #reenterAccountNumber
+                        matInput 
+                        formControlName="forthCtrl" 
+                        mask="AAAAAAAAAA999999" 
+                        [readonly]="bankName == ''"
+                        required>
+                    <mat-error *ngIf="forthFormGroup.get('forthCtrl')?.errors && !forthFormGroup.get('forthCtrl')?.hasError('notEqualError')">Please enter a valid Account number</mat-error>
+                    <mat-error *ngIf="forthFormGroup.get('forthCtrl')?.hasError('notEqualError')">Account Number not matching</mat-error>
                 </mat-form-field>
+                
             </div>
             <div>
                 <mat-form-field appearance="fill">
                 <mat-label>Account Name</mat-label>
-                <input matInput formControlName="fifthCtrl" required>
+                <input 
+                    matInput 
+                    formControlName="fifthCtrl" 
+                    [readonly]="bankName == ''"
+                    required>
+                <mat-error>Please enter account name</mat-error>
                 </mat-form-field>
+                
             </div>
             <div [hidden]="savingBankDetails">
                 <button 

@@ -1,3 +1,7 @@
 .toolbar {
     font-size:xx-large
 }
+
+.content {
+    margin-top: 120px !important;
+}

@@ -4,8 +4,17 @@
   width: 300px;
 }
 
-::ng-deep .mat-vertical-stepper-header{
-    pointer-events: none !important;
+::ng-deep .mat-horizontal-stepper-header-container {
+    display: none !important;
+  }
+
+.mat-divider {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.stepper-header {
+    font-size: x-large;
 }
 
 .steplabel {
@@ -20,7 +29,7 @@
 }  */
 
 ::ng-deep .mat-step-header .mat-step-icon-selected {
-    background-color: red
+    background-color: red;
  }
 
  .done {

@@ -1,8 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, SelectMultipleControlValueAccessor, Validators} from '@angular/forms';
-import {StepperSelectionEvent, STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import {FormBuilder, FormGroup, NgForm, SelectMultipleControlValueAccessor, Validators} from '@angular/forms';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { accountNumberValidator } from './accountNumberValidator';
 
 /**
  * @title Stepper that displays errors in the steps
@@ -21,13 +20,17 @@ import { delay } from 'rxjs/operators';
 export class StudentInfoComponent implements OnInit {
 
   @ViewChild('secondCtrl') otp: ElementRef;
-  @ViewChild('accountNumber') accountNumber: ElementRef;
+  @ViewChild('accountNumber') accountNumber: any;
+  @ViewChild('reenterAccountNumber') reenterAccountNumber: any;
   @ViewChild('aadhaarNumber') aadhaarNumber: ElementRef;  
-
+  @ViewChild('forthFormDirective') private forthFormDirective: NgForm;
+  @ViewChild('ifscCode') private ifscCode: ElementRef;
+  
   firstFormGroup: FormGroup;
   otpFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  forthFormGroup: FormGroup;
 
   otpSent=false;
   sendingOtp=false;
@@ -38,6 +41,8 @@ export class StudentInfoComponent implements OnInit {
   ifscFetching = false;
   bankName = "";
   savingBankDetails = false;
+  accountNumberValue = "";
+  reenterAccountNumberValue = "";
 
   constructor(private _formBuilder: FormBuilder) {}
 
@@ -50,10 +55,18 @@ export class StudentInfoComponent implements OnInit {
     });
     this.thirdFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
-      thirdCtrl: ['', Validators.required],
-      forthCtrl: ['', Validators.required],
-      fifthCtrl: ['', Validators.required],
     });
+    this.forthFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required],
+      fifthCtrl: ['', Validators.required],
+      forthCtrl: ['', accountNumberValidator()],
+    });
+
+  }
+
+  ngAfterViewInit(){
+    this.aadhaarNumber.nativeElement?.focus();
+    this.aadhaarNumber.nativeElement?.select();
   }
 
   private delay(ms: number)
@@ -102,17 +115,26 @@ export class StudentInfoComponent implements OnInit {
   }
 
   async fetchIfscInfo() {
-    this.ifscFetching = true;
-    this.bankName="";
-    await this.delay(3000).then( () => {
-      this.ifscFetching = false;
-      this.bankName = "State bank of India. Chennai."
-      setTimeout(()=>{ // this will make the execution after the above boolean has changed
-        this.accountNumber.nativeElement.focus();
-        this.accountNumber.nativeElement.select();
-      },0); 
-      }
-    );
+    if(this.thirdFormGroup.valid) {
+      this.ifscFetching = true;
+      this.bankName="";
+      await this.delay(3000).then( () => {
+          this.ifscFetching = false;
+          this.bankName = "State bank of India. Chennai."
+          setTimeout(()=>{ 
+            this.accountNumber.nativeElement.focus();
+            this.accountNumber.nativeElement.select();
+          },0); 
+          console.log("Resetting forth form");
+            this.forthFormDirective.resetForm();
+            this.forthFormGroup.reset();
+            Object.keys(this.forthFormGroup.controls).forEach(key => {
+              this.forthFormGroup.get(key)!.setErrors(null) ;
+          });
+        }
+      );
+    }
+    
   }
 
   async saveBankDetails(stepper:any) {
@@ -134,9 +156,24 @@ export class StudentInfoComponent implements OnInit {
     this.timeLeft = 0;
     stepper.reset();
     setTimeout(()=>{ // this will make the execution after the above boolean has changed
-      this.aadhaarNumber.nativeElement.focus();
-      this.aadhaarNumber.nativeElement.select();
+      this.aadhaarNumber.nativeElement?.focus();
+      this.aadhaarNumber.nativeElement?.select();
     },0); 
     
+  }
+
+  onChange(event: any) {
+    let index = String(event.selectedIndex);
+    console.log(index);
+    if(index == "2") {
+        let targetElem = document.getElementById("ifscCode");
+        setTimeout(function waitTargetElem() {
+          if (document.body.contains(targetElem)) {
+            targetElem?.focus();
+          } else {
+            setTimeout(waitTargetElem, 200);
+          }
+        }, 200);
+    }
   }
 }

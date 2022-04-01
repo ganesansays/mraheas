@@ -1,3 +1,5 @@
+<div class="mat-h2">If you are already enrolled, you can login to update your bank information.</div> 
+
 <mat-stepper orientation="vertical" linear #stepper>
     <mat-step [stepControl]="firstFormGroup" [completed]="eligibleForScholorship">
       <form [formGroup]="firstFormGroup">
@@ -7,14 +9,17 @@
           <input #aadhaarNumber matInput placeholder="____-____-____-____" formControlName="firstCtrl" mask="0000-0000-0000-0000" required>
           <mat-error>Please enter a valid Aadhaar Number</mat-error>
         </mat-form-field>
-        <div>
+        <div [hidden]="!otpSent">OTP is sent to your mobile nuber XXX-XXX-3456</div>
+        <div style="margin-top:10px">
             <div [hidden]="!sendingOtp"><mat-spinner></mat-spinner></div>
-            <div [hidden]="sendingOtp">
+            <div [hidden]="otpSent">
                 <button mat-raised-button color="primary" (click)="sendOtp();" [disabled]="!firstFormGroup.valid || timeLeft > 0">
-                    <span [hidden]="otpSent">Send OTP</span>
-                    <span [hidden]="!otpSent">Resend OTP</span>
+                    <span [hidden]="sendingOtp || otpSent">Send OTP</span>
                 </button>
-                <span [hidden]="!(otpSent || timeLeft > 0)"> will be enabled after <span class="numberCircle">{{timeLeft}}</span>seconds</span>
+            </div>
+            <div [hidden]="!otpSent">
+                <a [disabled]="timeLeft > 0" mat-button href="#" (click)="sendOtp()">Resend OTP</a>
+                <span [hidden]="timeLeft == 0 || !(otpSent || timeLeft > 0)">will be enabled in <span class="numberCircle">{{timeLeft}}</span>seconds</span>
             </div>
         </div>
     </form>
@@ -102,8 +107,12 @@
                 <input matInput formControlName="fifthCtrl" required>
                 </mat-form-field>
             </div>
-            <div>
-                <button mat-button mat-raised-button color="primary" (click)="saveBankDetails(stepper)" [disabled]="savingBankDetails" >Save</button>
+            <div [hidden]="savingBankDetails">
+                <button 
+                    mat-button 
+                    mat-raised-button color="primary" 
+                    (click)="saveBankDetails(stepper)" 
+                     >Save</button>
             </div>
             <div [hidden]="!savingBankDetails" style="margin-top:20px"><mat-spinner></mat-spinner></div>
         </div>

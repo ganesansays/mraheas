@@ -77,6 +77,7 @@ export class StudentInfoComponent implements OnInit {
   }
 
   async sendOtp() {
+    if(this.timeLeft > 0) return;
     this.otpSent = false;
     this.sendingOtp = true;
     await this.delay(3000);

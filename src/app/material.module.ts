@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   exports: [
@@ -15,7 +16,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatStepperModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatRippleModule
   ]
 })
 export class MaterialModule {}

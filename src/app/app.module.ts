@@ -9,13 +9,20 @@ import { StudentInfoComponent } from './student-info/student-info.component';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { InstituteAdminComponent } from './institute-admin/institute-admin.component'
+import { RouterModule } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
+import { EductionDepartmentComponent } from './eduction-department/eduction-department.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentInfoComponent
+    StudentInfoComponent,
+    InstituteAdminComponent,
+    HomePageComponent,
+    EductionDepartmentComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +32,12 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
+    RouterModule.forRoot([
+      { path: '', component: HomePageComponent },
+      { path: 'studentRegistration', component: StudentInfoComponent },
+      { path: 'instituteAdmin', component: InstituteAdminComponent },
+      { path: 'educationDepartment', component: EductionDepartmentComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

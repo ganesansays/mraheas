@@ -1,0 +1,27 @@
+.example-ripple-container {
+    cursor: pointer;
+    text-align: center;
+  
+    font-size:x-large;
+  
+    width: 300px;
+    height: 150px;
+    line-height: 150px;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+    
+  .Row {
+      display: table;
+      width: 100%; /*Optional*/
+      table-layout: fixed; /*Optional*/
+      border-spacing: 10px; /*Optional*/
+  }
+  .Column {
+      display: table-cell;
+  }

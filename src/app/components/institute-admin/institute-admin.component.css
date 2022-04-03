@@ -1,5 +1,6 @@
 .header {
     font-size: x-large;
+    width: 100%;
 }
 
 .mat-divider {
@@ -12,7 +13,7 @@ table {
 }
 
 .mat-header-cell {
-    padding: 3px;
+    padding: 15px;
     font-weight:  bolder;
     font-size: medium;
 }

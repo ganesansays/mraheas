@@ -7,9 +7,9 @@ import { accountNumberValidator } from './accountNumberValidator';
  * @title Stepper that displays errors in the steps
  */
  @Component({
-  selector: 'app-student-info',
-  templateUrl: './student-info.component.html',
-  styleUrls: ['./student-info.component.css'],
+  selector: 'app-student-registration',
+  templateUrl: './student-registration.component.html',
+  styleUrls: ['./student-registration.component.css'],
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
@@ -17,7 +17,7 @@ import { accountNumberValidator } from './accountNumberValidator';
     },
   ],
 })
-export class StudentInfoComponent implements OnInit {
+export class StudentRegistrationComponent implements OnInit {
 
   @ViewChild('secondCtrl') otp: ElementRef;
   @ViewChild('accountNumber') accountNumber: any;

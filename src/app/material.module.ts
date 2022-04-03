@@ -7,6 +7,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatRippleModule} from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   exports: [
@@ -17,7 +21,11 @@ import {MatRippleModule} from '@angular/material/core';
     MatProgressSpinnerModule,
     MatIconModule,
     MatDividerModule,
-    MatRippleModule
+    MatRippleModule,
+    MatGridListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule {}

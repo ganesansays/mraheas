@@ -25,3 +25,9 @@
   .Column {
       display: table-cell;
   }
+
+  
+  mat-grid-list {
+    width: 70vw;
+    height: 50vh;
+  }

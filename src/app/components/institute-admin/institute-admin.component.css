@@ -1,0 +1,58 @@
+.header {
+    font-size: x-large;
+}
+
+.mat-divider {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    padding: 3px;
+    font-weight:  bolder;
+    font-size: medium;
+}
+
+td, tr {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.mat-cell {
+    padding: 15px;
+    font-size:medium;
+}
+
+.Approved {
+    color: green;
+}
+
+/*.NotApproved {
+    color: red;
+}
+
+.Disbursed {
+    color: green;
+} */
+
+.mat-row:nth-child(even){
+    background-color: #E1F5FE;
+}
+        
+.mat-row:nth-child(odd){
+    background-color: white;
+}
+
+.mat-header-cell {
+    background: #80D8FF;
+    color: black;
+}
+
+.mat-header-row {
+    min-height: 10px;
+}

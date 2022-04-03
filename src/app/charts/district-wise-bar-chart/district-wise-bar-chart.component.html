@@ -1,0 +1,39 @@
+
+
+<div class="chartContainer">
+  <mat-grid-list cols="4" rowHeight="200px">
+      <mat-grid-tile>
+        <canvas baseChart 
+                [data]="northZoneEnrollmentData" 
+                [type]="'bar'"
+                [options]="northZoneChartOptions"
+              >
+        </canvas>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <canvas baseChart 
+        [data]="southZoneEnrollmentData" 
+        [type]="'bar'"
+        [options]="southZoneChartOptions"
+      >
+</canvas>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <canvas baseChart 
+        [data]="centralZoneEnrollmentData" 
+        [type]="'bar'"
+        [options]="centralZoneChartOptions"
+      >
+</canvas>
+      </mat-grid-tile>
+      
+      <mat-grid-tile>
+        <canvas baseChart 
+        [data]="westZoneEnrollmentData" 
+        [type]="'bar'"
+        [options]="westZoneChartOptions"
+      >
+</canvas>
+      </mat-grid-tile>
+  </mat-grid-list>
+  </div>

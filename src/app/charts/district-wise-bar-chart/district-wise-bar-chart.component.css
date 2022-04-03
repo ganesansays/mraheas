@@ -1,0 +1,24 @@
+.canvas {
+    
+}
+
+.div {
+    width: 100%;
+}
+
+.chartContainer {
+    width: 1000px;
+    height: 100%;
+    
+    display: block;
+}
+
+::ng-deep .mat-grid-tile-content {
+    display: block !important;
+    height: 100%;
+}
+
+::ng-deep .mat-grid-tile {
+    display: block !important;
+    height: 300px !important;
+}

@@ -1,0 +1,11 @@
+<div class="header">
+    <b>Education Department - Technical Eduction Department</b>
+    <mat-icon aria-hidden="false" matTooltip="Enrollment details" aria-label="Example home icon" [routerLink]="'/educationDepartment'" style="margin-right:10px;float: right;">toc</mat-icon>
+    <mat-icon aria-hidden="false" matTooltip="Filter graph" aria-label="Example home icon" style="margin-right:10px;float: right;">filter_alt</mat-icon>
+</div>
+<mat-divider></mat-divider>
+
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>
+<app-district-wise-bar-chart></app-district-wise-bar-chart>

@@ -17,6 +17,9 @@ import { EducationDepartmentComponent } from './components/education-department/
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
+import { EducationDepartmentAssessmentComponent } from './components/education-department-assessment/education-department-assessment.component';
+import { NgChartsModule } from 'ng2-charts';
+import { DistrictWiseBarChartComponent } from './charts/district-wise-bar-chart/district-wise-bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     StudentRegistrationComponent,
     InstituteAdminComponent,
     HomePageComponent,
-    EducationDepartmentComponent
+    EducationDepartmentComponent,
+    EducationDepartmentAssessmentComponent,
+    DistrictWiseBarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'studentRegistration', component: StudentRegistrationComponent },
       { path: 'instituteAdmin', component: InstituteAdminComponent },
       { path: 'educationDepartment', component: EducationDepartmentComponent },
-    ], { useHash: true })
+      { path: 'educationDepartmentAssessment', component: EducationDepartmentAssessmentComponent },
+    ], { useHash: true }),
+    NgChartsModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent,]

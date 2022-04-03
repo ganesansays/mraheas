@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { EducationDepartmentAssessmentComponent } from './components/education-department-assessment/education-department-assessment.component';
 import { NgChartsModule } from 'ng2-charts';
 import { DistrictWiseBarChartComponent } from './charts/district-wise-bar-chart/district-wise-bar-chart.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuardService } from './services/auth-gaurd.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { DistrictWiseBarChartComponent } from './charts/district-wise-bar-chart/
     HomePageComponent,
     EducationDepartmentComponent,
     EducationDepartmentAssessmentComponent,
-    DistrictWiseBarChartComponent
+    DistrictWiseBarChartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,13 +46,14 @@ import { DistrictWiseBarChartComponent } from './charts/district-wise-bar-chart/
     RouterModule.forRoot([
       { path: '', component: HomePageComponent },
       { path: 'studentRegistration', component: StudentRegistrationComponent },
-      { path: 'instituteAdmin', component: InstituteAdminComponent },
-      { path: 'educationDepartment', component: EducationDepartmentComponent },
-      { path: 'educationDepartmentAssessment', component: EducationDepartmentAssessmentComponent },
+      { path: 'instituteAdmin', component: InstituteAdminComponent, canActivate : [AuthGuardService] },
+      { path: 'educationDepartment', component: EducationDepartmentComponent, canActivate : [AuthGuardService] },
+      { path: 'educationDepartmentAssessment', component: EducationDepartmentAssessmentComponent, canActivate : [AuthGuardService] },
+      { path: 'login', component: LoginComponent },
     ], { useHash: true }),
     NgChartsModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [AuthGuardService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { StudentInfoService } from 'src/app/services/student-info.service';
-import { StudentsInfo } from 'src/app/services/students-info.service.response';
 
 @Component({
   selector: 'app-institute-admin',
@@ -27,7 +27,7 @@ export class InstituteAdminComponent implements OnInit {
   // "term2Status": "Not Approved" 
   displayedColumns = ['Select', 'Year','Aadhaar Number', 'Name', 'Term 1 Status', 'Term 2 Status', 'Account Number']
 
-  constructor(private studentInfoService: StudentInfoService) { 
+  constructor(private studentInfoService: StudentInfoService, private router: Router) { 
 
     this.filterSelectObj = [
       {

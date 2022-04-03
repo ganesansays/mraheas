@@ -4,6 +4,7 @@
     <mat-step [stepControl]="firstFormGroup" [completed]="eligibleForScholorship">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel><span class="steplabel">Login using your Aadhaar</span></ng-template>
+        <div class="mat-h2">Please provide your aadhaar number to start registration.</div>
         <mat-form-field #aadhaarNumber appearance="fill">
           <mat-label>Aadhaar Number</mat-label>
           <input 
@@ -79,7 +80,7 @@
         </div>
     </mat-step>
     <mat-step [stepControl]="thirdFormGroup">
-      <div class="mat-h2">We will require your bank details to enroll you for scholarship.</div>
+      <div class="mat-h2">Please provide your bank details to enroll you for scholarship.</div>
       <form [formGroup]="thirdFormGroup" >
         <ng-template matStepLabel><span class="steplabel">Provide bank details</span></ng-template>
         <div>

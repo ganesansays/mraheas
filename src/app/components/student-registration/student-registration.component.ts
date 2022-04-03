@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, SelectMultipleControlValueAccessor, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { accountNumberValidator } from './accountNumberValidator';
+import { Router } from '@angular/router';
 
 /**
  * @title Stepper that displays errors in the steps
@@ -44,7 +45,7 @@ export class StudentRegistrationComponent implements OnInit {
   accountNumberValue = "";
   reenterAccountNumberValue = "";
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private router:Router) {}
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -156,8 +157,7 @@ export class StudentRegistrationComponent implements OnInit {
     this.timeLeft = 0;
     stepper.reset();
     setTimeout(()=>{ // this will make the execution after the above boolean has changed
-      this.aadhaarNumber.nativeElement?.focus();
-      this.aadhaarNumber.nativeElement?.select();
+      this.router.navigate(['']);
     },0); 
     
   }

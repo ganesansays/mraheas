@@ -13,11 +13,10 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { InstituteAdminComponent } from './components/institute-admin/institute-admin.component'
 import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { EductionDepartmentComponent } from './components/eduction-department/eduction-department.component';
+import { EducationDepartmentComponent } from './components/education-department/education-department.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
-import { EducationDepartmentComponent } from './components/education-department/education-department.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { EducationDepartmentComponent } from './components/education-department/
     StudentRegistrationComponent,
     InstituteAdminComponent,
     HomePageComponent,
-    EductionDepartmentComponent,
     EducationDepartmentComponent
   ],
   imports: [
@@ -41,7 +39,7 @@ import { EducationDepartmentComponent } from './components/education-department/
       { path: '', component: HomePageComponent },
       { path: 'studentRegistration', component: StudentRegistrationComponent },
       { path: 'instituteAdmin', component: InstituteAdminComponent },
-      { path: 'educationDepartment', component: EductionDepartmentComponent },
+      { path: 'educationDepartment', component: EducationDepartmentComponent },
     ], { useHash: true })
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

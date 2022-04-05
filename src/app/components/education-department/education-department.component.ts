@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { StudentInfoService } from 'src/app/services/student-info.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class EducationDepartmentComponent implements OnInit {
   // "term2Status": "Not Approved" 
   displayedColumns = ['Select', 'Year', 'District', 'Institution', 'Aadhaar Number', 'Name', 'Term 1 Status', 'Term 2 Status', 'Account Number']
 
-  constructor(private studentInfoService: StudentInfoService) { 
+  constructor(private studentInfoService: StudentInfoService, private router: Router) { 
 
     this.filterSelectObj = [
       {
@@ -65,9 +66,14 @@ export class EducationDepartmentComponent implements OnInit {
     })
   }
 
+  ngAfterViewInit() {
+    document.getElementById('html')?.setAttribute("style", "overflow:scroll!important;");
+  }
+
   selectAll() {
     
   }
+  
 
   createFilter() {
     let filterFunction = function (data: any, filter: string): boolean {
@@ -103,4 +109,8 @@ export class EducationDepartmentComponent implements OnInit {
     return filterFunction
   }
 
+  logout() {
+    localStorage.setItem('user', '');
+    this.router.navigate(['']);
+  }
 }

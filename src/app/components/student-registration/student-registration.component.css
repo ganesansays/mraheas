@@ -54,3 +54,7 @@
 
     font-size: medium;
 }
+
+.mat-stepper-horizontal {
+    background-color: transparent;
+}

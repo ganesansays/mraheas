@@ -66,6 +66,10 @@ export class InstituteAdminComponent implements OnInit {
     })
   }
 
+  ngAfterViewInit() {
+    document.getElementById('html')?.setAttribute("style", "overflow:scroll!important;");
+  }
+
   selectAll() {
     
   }
@@ -102,6 +106,11 @@ export class InstituteAdminComponent implements OnInit {
       return nameSearch()
     }
     return filterFunction
+  }
+
+  logout() {
+    localStorage.setItem('user', '');
+    this.router.navigate(['']);
   }
 
 }

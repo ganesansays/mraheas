@@ -1,7 +1,8 @@
 <div class="header">
     <b>Institute Admin</b>
-    <mat-icon aria-hidden="false" matTooltip="Enrollment info" aria-label="Example home icon" [routerLink]="'/educationDepartment'" style="margin-right:10px;float: right;">download</mat-icon>
-    <mat-icon aria-hidden="false" matTooltip="Filter list" aria-label="Example home icon" style="margin-right:10px;float: right;">filter_alt</mat-icon>
+    <mat-icon aria-hidden="false" matTooltip="Logout" aria-label="Logout" (click)="logout()" style="margin-right:10px;float: right;">logout</mat-icon>
+    <mat-icon aria-hidden="false" matTooltip="Download as CSV" aria-label="Download as CSV" [routerLink]="'/educationDepartment'" style="margin-right:10px;float: right;">download</mat-icon>
+    <mat-icon aria-hidden="false" matTooltip="Filter list" aria-label="Filter list" style="margin-right:10px;float: right;">filter_alt</mat-icon>
     <button mat-flat-button color="primary" style="float:right;margin-left:10px;margin-right:10px">Approve Selected</button>
     <button mat-flat-button color="accent" style="float:right">Approve All Pending</button>
 </div>

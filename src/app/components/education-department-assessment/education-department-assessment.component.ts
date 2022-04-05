@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-education-department-assessment',
@@ -8,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class EducationDepartmentAssessmentComponent implements OnInit {
 
   
-  constructor() {
+  constructor(private router: Router) {
     
   }
   ngOnInit(): void {
     
   }
 
+  logout() {
+    localStorage.setItem('user', '');
+    this.router.navigate(['']);
+  }
 
 }

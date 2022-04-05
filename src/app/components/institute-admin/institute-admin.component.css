@@ -42,16 +42,16 @@ td, tr {
 } */
 
 .mat-row:nth-child(even){
-    background-color: #E1F5FE;
+    background-color: #FAFAFA;
 }
         
 .mat-row:nth-child(odd){
-    background-color: white;
+    background-color: #EEEEEE;
 }
 
 .mat-header-cell {
-    background: #80D8FF;
-    color: black;
+    background: #9E9E9E;
+    color: white;
 }
 
 .mat-header-row {

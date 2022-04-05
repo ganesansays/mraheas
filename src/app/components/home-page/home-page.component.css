@@ -29,5 +29,9 @@
   
   mat-grid-list {
     width: 70vw;
-    height: 50vh;
+    /* height: 20vh; */
+  }
+
+  ::ng-deep div.mat-grid-tile-content {
+    justify-content: left!important;
   }

@@ -17,4 +17,9 @@ export class AppComponent {
     localStorage.setItem('user', '');
     this.router.navigate(['']);
   }
+
+  routeToHome() {
+    console.log('routeToHome');
+    this.router.navigate(['']);
+  }
 }

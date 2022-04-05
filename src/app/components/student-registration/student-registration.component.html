@@ -1,7 +1,7 @@
 <div class="stepper-header"><b>Students Registration</b></div>
 <mat-divider></mat-divider>
 <mat-stepper linear #stepper (selectionChange)="onChange($event)">
-    <mat-step [stepControl]="firstFormGroup" [completed]="eligibleForScholorship">
+    <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel><span class="steplabel">Login using your Aadhaar</span></ng-template>
         <div class="mat-h2">Please provide your aadhaar number to start registration.</div>
@@ -58,6 +58,53 @@
         </div>
       </form>
     </mat-step>
+    <mat-step [stepControl]="emisNumberFormGroup" [completed]="eligibleForScholorship">
+        <form [formGroup]="emisNumberFormGroup">
+            <ng-template matStepLabel><span class="steplabel">Check Eligibility</span></ng-template>
+            <div>
+            <mat-form-field appearance="fill">
+                <mat-label>EMIS Number</mat-label>
+                <input 
+                    matInput 
+                    mask="00000000" 
+                    formControlName="emisNumberCtrl" 
+                    required autocomplete="off" 
+                    >
+                    <mat-error>Please enter a EMIS Number</mat-error>
+            </mat-form-field>
+            </div>
+            <div>
+            <mat-form-field appearance="fill">
+                <mat-label>College Distrct</mat-label>
+                <mat-select [formControl]="district" required [(value)]="selectedDistrict">
+                  <mat-select-trigger>
+                    {{district.value}}
+                  </mat-select-trigger>
+                  <mat-option *ngFor="let district of districts" [value]="district">{{district}}</mat-option>
+                </mat-select>
+                <mat-error>Please select the district of your college</mat-error>
+              </mat-form-field>
+              </div>
+              <div>
+              <mat-form-field appearance="fill">
+              <mat-label>College</mat-label>
+                <mat-select [formControl]="institution" required [(value)]="selectedInstitution">
+                  <mat-select-trigger>
+                    {{institution.value}}
+                  </mat-select-trigger>
+                  <mat-option *ngFor="let institution of institutions" [value]="institution">{{institution}}</mat-option>
+                </mat-select>
+                <mat-error>Please select your college</mat-error>
+              </mat-form-field>
+            </div>
+            <div><button 
+                mat-button mat-raised-button 
+                color="primary" 
+                (click)="checkEligibility(stepper)"
+                >Check Eligibility</button>
+            </div>
+          </form>
+    </mat-step>
     <mat-step>
         <ng-template matStepLabel><span class="steplabel">Validate your institution</span></ng-template>
         <div class="mat-h2">
@@ -66,13 +113,11 @@
             <p></p>
             <p>Welcome Selvi <b><u>Thamizh Mozhi! </u></b></p>
 
+            <p class="mat-h1" style="color:orange">{{selectedInstitution}}, {{selectedDistrict}}.</p>            
+
             <p style="color:green"><b><u>You are eligible for the Scholarship!</u></b></p>
 
-            <p class="mat-h3">As per our records, your are currently studying at </p>
-            
-            <p class="mat-h1" style="color:orange">Government Arts College, Tiruchirappalli. </p>
 
-            <p class="mat-h3"> If incorrect, please contact your institution administrator to correct your details before enrolling.</p>
 
         </div>
         <div>

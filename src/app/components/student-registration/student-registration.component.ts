@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, SelectMultipleControlValueAccessor, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm, SelectMultipleControlValueAccessor, ValidationErrors, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { accountNumberValidator } from './accountNumberValidator';
 import { Router } from '@angular/router';
@@ -32,6 +32,13 @@ export class StudentRegistrationComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   forthFormGroup: FormGroup;
+  emisNumberFormGroup: FormGroup;
+
+  district = new FormControl();
+  institution = new FormControl();
+
+  selectedDistrict : any;
+  selectedInstitution : any;
 
   otpSent=false;
   sendingOtp=false;
@@ -44,6 +51,53 @@ export class StudentRegistrationComponent implements OnInit {
   savingBankDetails = false;
   accountNumberValue = "";
   reenterAccountNumberValue = "";
+
+  districts: string[] = ['Ariyalur',
+  'Karur',
+  'Nagappattinam',
+  'Perambalur',
+  'Pudukkottai',
+  'Thanjavur',
+  'Tiruchirappalli',
+  'Tiruvarur',
+  'Dharmapuri',
+  'Coimbatore',
+  'Erode',
+  'Krishnagiri',
+  'Namakkal',
+  'The Nilgiris',
+  'Salem',
+  'Tiruppur',
+  'Dindigul',
+  'Kanyakumari',
+  'Madurai',
+  'Ramanathapuram',
+  'Sivagangai',
+  'Theni',
+  'Thoothukudi',
+  'Tirunelveli',
+  'Virudhunagar',
+  'Tenkasi',
+  'Chennai',
+  'Cuddalore',
+  'Kanchipuram',
+  'Chengalpattu',
+  'Tiruvallur',
+  'Tiruvannamalai',
+  'Vellore',
+  'Viluppuram',
+  'Kallakurichi',
+  'Ranipet',
+  'Thirupattur'
+];
+  institutions: string[] = [
+  'Anna University of Technology Tiruchirappalli – Ariyalur Campus',
+  'District Institute of Education and Training(DIET)',
+  'Government Arts College',
+  'Government ITI, Ariyalur',
+  'Government ITI, Andimadam',
+  'Government Polytechnic College'
+  ];
 
   constructor(private _formBuilder: FormBuilder, private router:Router) {}
 
@@ -62,12 +116,18 @@ export class StudentRegistrationComponent implements OnInit {
       fifthCtrl: ['', Validators.required],
       forthCtrl: ['', accountNumberValidator()],
     });
+    this.emisNumberFormGroup = this._formBuilder.group({
+      emisNumberCtrl: ['', Validators.required],
+      district: ['', Validators.required],
+      institution: ['', Validators.required]
+    });
 
   }
 
   ngAfterViewInit(){
     this.aadhaarNumber.nativeElement?.focus();
     this.aadhaarNumber.nativeElement?.select();
+    document.getElementById('html')?.setAttribute("style", "overflow:scroll!important;");
   }
 
   private delay(ms: number)
@@ -106,10 +166,8 @@ export class StudentRegistrationComponent implements OnInit {
 
   async verifyOtp(stepper:any) {
     this.verifyingOtp = true;
-    this.eligibleForScholorship = false;
     await this.delay(3000).then( () => {
         this.verifyingOtp = false;
-        this.eligibleForScholorship = true;
         stepper.next();
       }
     );
@@ -146,6 +204,34 @@ export class StudentRegistrationComponent implements OnInit {
     });
   }
 
+  checkEligibility(stepper: any) {
+    
+    // if(this.emisNumberFormGroup.valid) {
+      console.log('checking eligibility');
+      this.eligibleForScholorship = false;
+    // await this.delay(3000).then( () => {
+        this.eligibleForScholorship = true;
+        console.log('stepper next');
+        console.log(stepper.selectedIndex);
+        stepper.selected.completed = true;
+        stepper.selected.editable = false;
+        stepper.next();
+      // }
+    // );  
+    // } else {
+    //   Object.keys(this.emisNumberFormGroup.controls).forEach(key => {
+    //     const controlErrors: any = this.emisNumberFormGroup.get(key)?.errors;
+    //     if (controlErrors != null) {
+    //       Object.keys(controlErrors).forEach(keyError => {
+    //        console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+    //       });
+    //     }
+    //   });
+    // }
+
+    
+ }
+
   logout(stepper:any) {
     this.otpSent=false;
     this.sendingOtp=false;
@@ -165,7 +251,7 @@ export class StudentRegistrationComponent implements OnInit {
   onChange(event: any) {
     let index = String(event.selectedIndex);
     console.log(index);
-    if(index == "2") {
+    if(index == "3") {
         let targetElem = document.getElementById("ifscCode");
         setTimeout(function waitTargetElem() {
           if (document.body.contains(targetElem)) {

@@ -1,52 +1,39 @@
-<!--<div class="Row">
-    <div class="Column">
-        <div class="example-ripple-container mat-elevation-z4"
-            matRipple
-            [routerLink]="'studentRegistration'"
-            >
-        <button mat-button color="primary" class="mat-h1">Student Registration</button>
+<mat-grid-list cols="3" rowHeight="200px" style="margin-top: 50px; height: 400px">
+    <mat-grid-tile rowspan="2" colspan="2" class="students-image">
+        <div style="width: 450px; height: 450px">
+            <img src="assets/students.png" style="width: 100%;
+            height: 100%;
+            object-fit:contain;
+            overflow: hidden"/>
         </div>
-    </div>
-    <div class="Column">
-        <div class="example-ripple-container mat-elevation-z4"
-            matRipple
-            [routerLink]="'instituteAdmin'"
-            >
-            <button mat-button color="primary" class="mat-h1">Institue Admin</button>
-        </div>
-    </div>
-    <div class="Column">
-        <div class="example-ripple-container mat-elevation-z4"
-            matRipple
-            [routerLink]="'educationDepartment'"
-            >
-            <button mat-button color="primary" class="mat-h1">Education Department</button>
-    </div>
-</div>-->
-
-<mat-grid-list cols="3" rowHeight="200px">
-    <mat-grid-tile>
-        <div class="example-ripple-container mat-elevation-z4"
-            matRipple
-            [routerLink]="'studentRegistration'"
-            >
-        <button mat-button color="primary" class="mat-h1">Student Registration</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="2">
+        <div>
+            <div style="width: 300px; height: 85px; margin-bottom: 20px;">
+                <a [routerLink]="'studentRegistration'">
+                    <img src="assets/StudentsLogin.png" style="width: 100%;
+                        height: 100%;
+                        object-fit:contain;
+                        overflow: hidden"/></a>
+            </div>
+            <div style="width: 300px; height: 85px; margin-bottom: 20px;">
+                <a [routerLink]="'instituteAdmin'"><img src="assets/CollegeLogin.png" style="width: 100%;
+                height: 100%;
+                object-fit:fill;
+                overflow: hidden"/></a>
+            </div>
+            <div style="width: 300px; height: 85px; margin-bottom: 20px;">
+                <a [routerLink]="'educationDepartment'"><img src="assets/Edu.Dept.Login.png" style="width: 100%;
+                height: 100%;
+                object-fit:fill;
+                overflow: hidden"/></a>
+            </div>
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
-        <div class="example-ripple-container mat-elevation-z4"
-            matRipple
-            [routerLink]="'instituteAdmin'"
-            >
-            <button mat-button color="primary" class="mat-h1">Institute Admin</button>
-        </div>
+        
     </mat-grid-tile>
     <mat-grid-tile>
-        <div class="example-ripple-container mat-elevation-z4"
-            matRipple
-            [routerLink]="'educationDepartment'"
-            >
-            <button mat-button color="primary" class="mat-h1">Education Department</button>
-        </div>
+        
     </mat-grid-tile>
 </mat-grid-list>

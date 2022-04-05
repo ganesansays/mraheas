@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +10,11 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  ngAfterViewInit() {
+    document.getElementById('html')?.setAttribute("style", "overflow:hidden!important;");
   }
 
 }

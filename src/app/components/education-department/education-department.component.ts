@@ -113,4 +113,8 @@ export class EducationDepartmentComponent implements OnInit {
     localStorage.setItem('user', '');
     this.router.navigate(['']);
   }
+
+  showAnalytics() {
+    this.router.navigate(['educationDepartmentAssessment'])
+  }
 }

@@ -15,6 +15,9 @@
 
 .stepper-header {
     font-size: x-large;
+    display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .steplabel {
@@ -35,6 +38,7 @@
  .done {
      margin-top: 16px;
      font-size: large;
+     text-align: center;
  }
 
  .mat-spinner {

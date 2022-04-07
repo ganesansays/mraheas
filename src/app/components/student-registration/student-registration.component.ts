@@ -36,9 +36,14 @@ export class StudentRegistrationComponent implements OnInit {
 
   district = new FormControl();
   institution = new FormControl();
+  typeOfCollege = new FormControl();
+  schoolName = new FormControl();
+  mobileNumber = new FormControl();
+  graduatingYear = new FormControl();
 
   selectedDistrict : any;
   selectedInstitution : any;
+  selectedTypeOfCollege : any;
 
   otpSent=false;
   sendingOtp=false;
@@ -90,6 +95,13 @@ export class StudentRegistrationComponent implements OnInit {
   'Ranipet',
   'Thirupattur'
 ];
+
+  typeOfInstitutions: string[] = [
+  'Engineering',
+  'Arts & Science',
+  'Vocational'
+  ];
+
   institutions: string[] = [
   'Anna University of Technology Tiruchirappalli – Ariyalur Campus',
   'District Institute of Education and Training(DIET)',
@@ -119,7 +131,10 @@ export class StudentRegistrationComponent implements OnInit {
     this.emisNumberFormGroup = this._formBuilder.group({
       emisNumberCtrl: ['', Validators.required],
       district: ['', Validators.required],
-      institution: ['', Validators.required]
+      institution: ['', Validators.required],
+      schoolName: ['', Validators.required],
+      mobileNumber: ['', Validators.required],
+      graduatingYear: ['', Validators.required]
     });
 
   }
@@ -154,7 +169,7 @@ export class StudentRegistrationComponent implements OnInit {
     if(this.timeLeft > 0) return;
     this.otpSent = false;
     this.sendingOtp = true;
-    await this.delay(3000);
+    await this.delay(30);
     this.otpSent = true;
     this.startTimer();
     this.sendingOtp = false;
@@ -166,7 +181,7 @@ export class StudentRegistrationComponent implements OnInit {
 
   async verifyOtp(stepper:any) {
     this.verifyingOtp = true;
-    await this.delay(3000).then( () => {
+    await this.delay(30).then( () => {
         this.verifyingOtp = false;
         stepper.next();
       }

@@ -17,7 +17,7 @@
           <mat-spinner></mat-spinner>
         </div>
         <div [hidden]="otpSent">
-          <button mat-raised-button color="primary" (click)="sendOtp();"
+          <button style="background-color: #ffcc33; color: #261c19;" mat-raised-button (click)="sendOtp();"
             [disabled]="!firstFormGroup.valid || timeLeft > 0">
             <span [hidden]="sendingOtp || otpSent">GENERATE OTP</span>
           </button>
@@ -37,7 +37,7 @@
           <mat-error>Please enter a valid OTP</mat-error>
         </mat-form-field>
         <div [hidden]="verifyingOtp">
-          <button mat-button mat-raised-button color="primary" [disabled]="!otpFormGroup.valid"
+          <button style="background-color: #ffcc33; color: #261c19;" mat-button mat-raised-button [disabled]="!otpFormGroup.valid"
             (click)="verifyOtp(stepper)">VERIFY</button>
         </div>
         <div [hidden]="!verifyingOtp">
@@ -132,7 +132,7 @@
           </td>
         </tr>
       </table>
-      <div style="justify-content:center"><button mat-button mat-raised-button color="primary"
+      <div style="justify-content:center"><button style="background-color: #228B22; color: #fff;" mat-button mat-raised-button
           (click)="checkEligibility(stepper)">PROCEED TO SCHOOL DETAILS</button>
       </div>
     </form>
@@ -182,7 +182,7 @@
           <tr mat-row *matRowDef="let row; columns: schoolInfoDisplayedColumns;"></tr>
         </table>
       </div>
-      <button mat-button mat-raised-button matStepperNext color="primary" style="margin: 15px;">PROCEED TO BANK DETAILS</button>
+      <button style="background-color: #228B22; color: #fff; margin: 15px;" mat-button mat-raised-button matStepperNext>PROCEED TO BANK DETAILS</button>
     </form>
   </mat-step>
   <mat-step [stepControl]="thirdFormGroup">
@@ -258,7 +258,7 @@
     </table>
 
     <div [hidden]="savingBankDetails">
-      <button mat-button mat-raised-button color="primary" (click)="saveBankDetails(stepper)">SUBMIT</button>
+      <button style="background-color: #228B22; color: #fff;" mat-button mat-raised-button (click)="saveBankDetails(stepper)">SUBMIT</button>
     </div>
     <div [hidden]="!savingBankDetails" style="margin-top:20px">
       <mat-spinner></mat-spinner>
@@ -271,7 +271,7 @@
       <p><span>Dear Selvi Thamizh Mozhi,</span></p>
       <p>Thank you for registering with your details!</p>
       <p>We will inform you after the verification from your college.</p>
-      <button mat-button mat-raised-button color="primary" (click)="logout(stepper)">Logout</button>
+      <button style="background-color: #FF0000; color: #fff;" mat-button mat-raised-button (click)="logout(stepper)">Logout</button>
     </div>
   </mat-step>
 </mat-stepper>

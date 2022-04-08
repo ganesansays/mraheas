@@ -1,1 +1,34 @@
-<img src="assets/landing-page-plain.jpeg" (click)="navigateToLogin()" style="margin-top: -215px; cursor: pointer;"/>
+<!-- <img src="assets/landing-page-plain.jpeg" (click)="navigateToLogin()" style="margin-top: -215px; cursor: pointer;"/> -->
+<mat-grid-list cols="3" rowHeight="200px" style="margin-top: 50px; height: 400px">
+    <mat-grid-tile rowspan="2" colspan="1" class="students-image">
+        <div style="width: 450px; height: 450px">
+            <img src="assets/students.png" style="width: 100%;
+            height: 100%;
+            object-fit:contain;
+            overflow: hidden"/>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+        <div style="width: 850px; margin-left: 50px;">
+            <div style="display: flex;
+            align-items: center;
+            justify-content: center; margin-bottom: 20px;">
+                <!-- <a [routerLink]="'studentRegistration'"><button mat-flat-button color="primary" style="margin-right: 10px; background-color: #ffcc33; color: #261c19; width: 200px">About the Scheme</button></a> -->
+                <p align=center style="margin-right: 10px; width: 650px; font-size: 18px; font-weight: bold;">About the Scheme</p>
+            </div>
+            <div style="display: flex;
+            align-items: center;
+            justify-content: center;">
+                <p align=justify style="width: 650px; font-size: 22px; line-height: 1.2;">Tamil Nadu Government has launched Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme 2022 aimed at
+                increasing the enrollment rate of girl students from government schools in higher education. Under this scheme,
+                the state government will provide monthly scholarship of Rs. 1000 each to girl students from government schools.
+                This amount will be given until girls completes their undergraduate, diploma, and ITI courses.</p>
+            </div>
+            <div style="display: flex;
+            align-items: center;
+            justify-content: center; margin-top: 20px;">
+                <button (click)="navigateToLogin()" mat-flat-button color="primary" style="margin-right: 10px; background-color: #ffcc33; color: #261c19; width: 200px">LOGIN</button>
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

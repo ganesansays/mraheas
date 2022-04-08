@@ -38,4 +38,9 @@ export class RegisteredStudentsComponent implements OnInit {
     this.router.navigate(['studentDocuments']);
   }
 
+  logout() {
+    localStorage.setItem('user', '');
+    this.router.navigate(['']);
+  }
+
 }

@@ -127,4 +127,10 @@ export class EducationDepartmentComponent implements OnInit {
     });
     return false;
   }
+
+  isFiltered = false;
+
+  toggleFilter() {
+    this.isFiltered = !this.isFiltered;
+  }
 }

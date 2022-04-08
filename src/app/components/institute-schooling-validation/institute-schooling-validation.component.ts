@@ -27,7 +27,7 @@ export class InstituteSchoolingValidationComponent implements OnInit {
   // "year": 2022,
   // "term1Status": "Approved",
   // "term2Status": "Not Approved" 
-  displayedColumns = ['Select', 'Datetime', 'Aadhaar No.', 'Name', 'Batch', 'Status']
+  displayedColumns = ['Select', 'Datetime', 'Aadhaar No.', 'Name', 'SchoolName', 'Batch', 'Status', 'Remarks']
 
   constructor(private studentInfoService: StudentInfoService, private router: Router, private _snackBar: MatSnackBar) { 
 
@@ -124,5 +124,11 @@ export class InstituteSchoolingValidationComponent implements OnInit {
 
   showAnalytics() {
     this.router.navigate(['instituteAnalytics'])
+  }
+
+  isFiltered = false;
+
+  toggleFilter() {
+    this.isFiltered = !this.isFiltered;
   }
 }

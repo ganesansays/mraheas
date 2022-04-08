@@ -28,7 +28,7 @@ export class EducationDepartmentComponent implements OnInit {
   // "year": 2022,
   // "term1Status": "Approved",
   // "term2Status": "Not Approved" 
-  displayedColumns = ['Select', 'Year', 'District', 'Institution', 'Aadhaar Number', 'Name', 'Term 1 Status', 'Account Number']
+  displayedColumns = ['Select', 'Year', 'District', 'Institution', 'Aadhaar Number', 'Name', 'Term 1 Status', 'Remarks', 'Account Number']
 
   constructor(private studentInfoService: StudentInfoService, private router: Router, private _snackBar: MatSnackBar) { 
 

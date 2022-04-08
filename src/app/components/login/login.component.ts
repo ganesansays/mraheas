@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +15,13 @@ export class LoginComponent implements OnInit {
 
   departmentsFormControl : FormControl;
   department : any;
+  isInstituteLogin : any;
+  value: any;
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.isInstituteLogin = params['url'].includes('instituteAnalytics');
+    });
   }
 
   ngAfterViewInit() {
@@ -26,10 +31,11 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
+    type: new FormControl('')
   });
 
   submit() {
-    localStorage.setItem('user', "{'name' : this.username}");
+    localStorage.setItem('user', JSON.stringify({'name' : 'name', 'type': this.value}));
     this.activatedRoute.queryParams.subscribe(params => {
       this.router.navigate([params['url']]);
     });

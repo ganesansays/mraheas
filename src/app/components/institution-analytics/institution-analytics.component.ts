@@ -25,4 +25,9 @@ export class InstitutionAnalyticsComponent implements OnInit {
     this.router.navigate(['instituteValidateSchooling']);
   }
 
+  logout() {
+    localStorage.setItem('user', '');
+    this.router.navigate(['']);
+  }
+
 }

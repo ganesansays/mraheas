@@ -1,34 +1,38 @@
 <mat-card>
-    <mat-card-title>Login</mat-card-title>
-<mat-card-content>
-<form [formGroup]="form" (ngSubmit)="submit()">
-    <section class="example-section">
-      <label class="example-margin">Department:</label>
-      <mat-radio-group>
-        <mat-radio-button class="example-margin" value="after">CEO/DC</mat-radio-button>
-        <mat-radio-button class="example-margin" value="before">Dean/Director</mat-radio-button>
-      </mat-radio-group>
-    </section>
-  <p>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Username" formControlName="username">
-    </mat-form-field>
-  </p>
+  <mat-card-title><span [hidden]="!isInstituteLogin">COLLEGE</span><span [hidden]="isInstituteLogin">EDU.
+      DEPT</span>&nbsp;LOGIN</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div [hidden]="isInstituteLogin">
+        <section class="example-section">
+          <label class="example-margin">Department:</label>
+          <mat-radio-group name="depttype" formControlName="type" [(ngModel)]="value" [formGroup]="form">
+            <mat-radio-button class="example-margin" [value]="'CEO'">CEO/DC</mat-radio-button>
+            <mat-radio-button class="example-margin" [value]="'DEAN'">Dean/Director</mat-radio-button>
+          </mat-radio-group>
+        </section>
+      </div>
+      
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Password" formControlName="password">
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+      </p>
 
-  <p *ngIf="error" class="error">
-    {{ error }}
-  </p>
+      <p *ngIf="error" class="error">
+        {{ error }}
+      </p>
 
-  <div class="button">
-    <button type="submit" mat-button>Login</button>
-  </div>
+      <div class="button">
+        <button type="submit" mat-button>Login</button>
+      </div>
 
-</form>
-</mat-card-content>
+    </form>
+  </mat-card-content>
 </mat-card>

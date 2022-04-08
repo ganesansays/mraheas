@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 })
 export class EducationDepartmentAssessmentComponent implements OnInit {
 
-  
+  type:any;
+
   constructor(private router: Router) {
+    var user = localStorage.getItem('user');
+    this.type = JSON.parse(user?user:'{}').type;
     
   }
   ngOnInit(): void {

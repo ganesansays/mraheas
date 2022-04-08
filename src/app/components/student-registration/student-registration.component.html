@@ -132,7 +132,7 @@
           </td>
         </tr>
       </table>
-      <div style="justify-content:center"><button style="background-color: #228B22; color: #fff;" mat-button mat-raised-button
+      <div style="justify-content:center"><button style="background-color: #ffcc33; color: #261c19;" mat-button mat-raised-button
           (click)="checkEligibility(stepper)">PROCEED TO SCHOOL DETAILS</button>
       </div>
     </form>
@@ -141,6 +141,13 @@
     <ng-template matStepLabel><span class="steplabel">School Info</span></ng-template>
     <form [formGroup]="studentSchoolFormGroup">
       <div class="student-info-table-container">
+        <section class="example-section" style="margin: 15px">
+          <mat-checkbox
+              class="example-margin"
+              >
+            RTE Enrolled
+          </mat-checkbox>
+        </section>
         <table mat-table [dataSource]="schoolInfo" class="mat-elevation-z2">
           <ng-container matColumnDef="Year">
             <th mat-header-cell *matHeaderCellDef>
@@ -182,7 +189,7 @@
           <tr mat-row *matRowDef="let row; columns: schoolInfoDisplayedColumns;"></tr>
         </table>
       </div>
-      <button style="background-color: #228B22; color: #fff; margin: 15px;" mat-button mat-raised-button matStepperNext>PROCEED TO BANK DETAILS</button>
+      <button style="background-color: #ffcc33; color: #261c19;margin: 15px;" mat-button mat-raised-button matStepperNext>PROCEED TO BANK DETAILS</button>
     </form>
   </mat-step>
   <mat-step [stepControl]="thirdFormGroup">

@@ -27,7 +27,7 @@ export class InstituteAdminComponent implements OnInit {
   // "year": 2022,
   // "term1Status": "Approved",
   // "term2Status": "Not Approved" 
-  displayedColumns = ['Select', 'Datetime', 'Year','Aadhaar No.', 'Name', 'Batch', 'AttendencePercentage', 'Status', 'Account Number']
+  displayedColumns = ['Select', 'Year','Aadhaar No.', 'Name', 'Batch', 'AttendencePercentage', 'Status', 'Remarks', 'Account Number', 'HallTicket']
 
   constructor(private studentInfoService: StudentInfoService, private router: Router, private _snackBar: MatSnackBar) { 
 
@@ -124,5 +124,11 @@ export class InstituteAdminComponent implements OnInit {
 
   showAnalytics() {
     this.router.navigate(['instituteAnalytics'])
+  }
+
+  isFiltered = false;
+
+  toggleFilter() {
+    this.isFiltered = !this.isFiltered;
   }
 }

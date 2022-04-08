@@ -1,5 +1,15 @@
 <div class="header">
-    <b>DEPT. MODULE</b>
+    <b>EDU. DEPT. MODULE - ANALYTICS</b>
+    <mat-icon aria-hidden="false" matTooltip="Logout" aria-label="Logout" (click)="logout()" style="margin-right:10px;float: right;color: red">logout</mat-icon>
+    <!-- <button mat-flat-button color="primary" style="margin-right: 10px" (click)="navigateToDisbursement()">DISBURSE PAYMENT</button> -->
+    <span [hidden]="type!='CEO'">
+    <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentInspection'" style="float:right;margin-left:10px;margin-right:10px; background-color: #ffcc33; color: #261c19; width: 200px">INSPECTION</button>
+    <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentCredCheck'" style="float:right; background-color: #ffcc33; color: #261c19; width: 200px">SCHOOL CRED CHECK</button>
+    </span>
+    <span [hidden]="type=='CEO'">
+        <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentSchooling'" style="float:right; background-color: #ffcc33; color: #261c19; width: 200px">SCHOOLING APPROVAL</button>
+        <button mat-flat-button color="primary" [routerLink]="'/educationDepartment'" style="float:right;margin-left:10px;margin-right:10px; background-color: #ffcc33; color: #261c19; width: 200px">DISBURSEMENT</button>
+    </span>
 </div>
 <mat-divider></mat-divider>
 <mat-card class="example-card" style="margin: 25px">
@@ -38,8 +48,3 @@
       <button mat-button>SHARE</button>
     </mat-card-actions> -->
 </mat-card>
-<div style="text-align:center; margin: 30px;">
-    <button mat-flat-button color="primary" style="margin-right: 10px" (click)="navigateToDisbursement()">DISBURSE PAYMENT</button>
-    <button mat-flat-button color="primary" style="margin-right: 10px">SCHOOL INSPECTION</button>
-    <button mat-flat-button color="primary" style="margin-right: 10px">SCHOOL CRED CHECK</button>
-</div>

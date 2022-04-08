@@ -22,6 +22,16 @@ import { NgChartsModule } from 'ng2-charts';
 import { DistrictWiseBarChartComponent } from './charts/district-wise-bar-chart/district-wise-bar-chart.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuardService } from './services/auth-gaurd.service';
+import { RegisteredStudentsComponent } from './components/registered-students/registered-students.component';
+import { UpdateBankDetailsComponent } from './components/update-bank-details/update-bank-details.component';
+import { ApprovalMessageComponent } from './components/approval-message/approval-message.component';
+import { InstitutionAnalyticsComponent } from './components/institution-analytics/institution-analytics.component';
+import { InstituteSchoolingValidationComponent } from './components/institute-schooling-validation/institute-schooling-validation.component';
+import { DisburseSnackBarComponent } from './components/disburse-snack-bar/disburse-snack-bar.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { StudentProfileComponent } from './components/student-profile/student-profile.component';
+import { StudentDisbursementComponent } from './components/student-disbursement/student-disbursement.component';
+import { StudentDocumentsComponent } from './components/student-documents/student-documents.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +42,17 @@ import { AuthGuardService } from './services/auth-gaurd.service';
     EducationDepartmentComponent,
     EducationDepartmentAssessmentComponent,
     DistrictWiseBarChartComponent,
-    LoginComponent
+    LoginComponent,
+    RegisteredStudentsComponent,
+    UpdateBankDetailsComponent,
+    ApprovalMessageComponent,
+    InstitutionAnalyticsComponent,
+    InstituteSchoolingValidationComponent,
+    DisburseSnackBarComponent,
+    LandingPageComponent,
+    StudentProfileComponent,
+    StudentDisbursementComponent,
+    StudentDocumentsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +64,17 @@ import { AuthGuardService } from './services/auth-gaurd.service';
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
     RouterModule.forRoot([
+      { path: 'landingPage', component: LandingPageComponent },
       { path: '', component: HomePageComponent },
       { path: 'studentRegistration', component: StudentRegistrationComponent },
+      { path: 'updateStudentProfile', component: StudentProfileComponent },
+      { path: 'studentDisbursement', component: StudentDisbursementComponent },
+      { path: 'studentDocuments', component: StudentDocumentsComponent },
+      { path: 'registeredStudents', component: RegisteredStudentsComponent },
+      { path: 'updateBankDetails', component: UpdateBankDetailsComponent },
       { path: 'instituteAdmin', component: InstituteAdminComponent, canActivate : [AuthGuardService] },
+      { path: 'instituteAnalytics', component: InstitutionAnalyticsComponent, canActivate : [AuthGuardService] },
+      { path: 'instituteValidateSchooling', component: InstituteSchoolingValidationComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartment', component: EducationDepartmentComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartmentAssessment', component: EducationDepartmentAssessmentComponent, canActivate : [AuthGuardService] },
       { path: 'login', component: LoginComponent },

@@ -1,0 +1,29 @@
+.mat-header-cell {
+    padding: 25px;
+    font-weight:  bolder;
+    font-size: medium;
+}
+
+td, tr {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.mat-cell {
+    padding: 25px;
+    font-size:medium;
+}
+
+.Content {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.header {
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}

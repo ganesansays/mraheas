@@ -1,0 +1,61 @@
+<div class="header">
+    <b>COLLEGE MODULE</b>
+</div>
+<mat-divider></mat-divider>
+<mat-card class="example-card" style="margin: 25px">
+    <div style="text-align:center;padding-bottom: 15px;">
+        <mat-card-title>ATTENDENCE APPROVAL STATUS</mat-card-title>
+    </div>
+    <mat-card-content>
+        <div style="font-size: 25px; margin-bottom: 15px;">
+            <mat-grid-list cols="3" style="margin-top: 5px;" rowHeight="10rem">
+                <mat-grid-tile>
+                    <div style="font-size:25px; padding:15px; font-weight: bold;">2000</div>
+                    <div
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: red">
+                        PENDING</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div style="font-size:25px; padding:15px; font-weight: bold;">3023</div>
+                    <div
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: orange">
+                        APPROVED</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div style="font-size:25px; padding:15px; font-weight: bold;">1231</div>
+                    <div
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: green">
+                        DISBURSED</div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card class="example-card" style="margin: 25px">
+    <div style="text-align:center;padding-bottom: 15px;">
+        <mat-card-title>SCHOOLING VALIDATION STATUS</mat-card-title>
+    </div>
+    <mat-card-content>
+        <div style="text-align:center; margin: 30px; width: 800px">
+            <mat-grid-list cols="2" rowHeight="10rem">
+                <mat-grid-tile>
+                    <div style="font-size:25px; padding:15px; font-weight: bold;">45</div>
+                    <div
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: red">
+                        PENDING</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div style="font-size:25px; padding:15px; font-weight: bold;">200</div>
+                    <div
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: green">
+                        VALIDATED</div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </mat-card-content>
+</mat-card>
+<div style="text-align:center; margin: 30px;">
+    <button mat-flat-button color="primary" (click)="navigateToApproveAttendence()">APPROVE ATTENDENCE</button>
+    <button mat-flat-button color="primary" style="margin:20px" (click)="navigateToSchooling()">APPROVE
+        SCHOOLING</button>
+</div>

@@ -33,6 +33,7 @@ export class StudentRegistrationComponent implements OnInit {
   thirdFormGroup: FormGroup;
   forthFormGroup: FormGroup;
   emisNumberFormGroup: FormGroup;
+  studentSchoolFormGroup: FormGroup
 
   district = new FormControl();
   institution = new FormControl();
@@ -40,10 +41,12 @@ export class StudentRegistrationComponent implements OnInit {
   schoolName = new FormControl();
   mobileNumber = new FormControl();
   graduatingYear = new FormControl();
+  emailId = new FormControl();
 
   selectedDistrict : any;
   selectedInstitution : any;
   selectedTypeOfCollege : any;
+  aadharNumberValue: any;
 
   otpSent=false;
   sendingOtp=false;
@@ -115,26 +118,27 @@ export class StudentRegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
+      firstCtrl: [''],
     });
     this.otpFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required],
+      secondCtrl: [''],
     });
     this.thirdFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
+      firstCtrl: [''],
     });
     this.forthFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required],
-      fifthCtrl: ['', Validators.required],
-      forthCtrl: ['', accountNumberValidator()],
+      thirdCtrl: [''],
+      fifthCtrl: [''],
+      forthCtrl: [''],
     });
     this.emisNumberFormGroup = this._formBuilder.group({
-      emisNumberCtrl: ['', Validators.required],
-      district: ['', Validators.required],
-      institution: ['', Validators.required],
-      schoolName: ['', Validators.required],
-      mobileNumber: ['', Validators.required],
-      graduatingYear: ['', Validators.required]
+      emisNumberCtrl: [''],
+      district: [''],
+      institution: [''],
+      schoolName: [''],
+      mobileNumber: [''],
+      graduatingYear: [''],
+      emailId: ['']
     });
 
   }
@@ -181,11 +185,19 @@ export class StudentRegistrationComponent implements OnInit {
 
   async verifyOtp(stepper:any) {
     this.verifyingOtp = true;
-    await this.delay(30).then( () => {
-        this.verifyingOtp = false;
-        stepper.next();
-      }
-    );
+    console.log(this.firstFormGroup.controls['firstCtrl'].value);
+
+    if(this.firstFormGroup.controls['firstCtrl'].value === '123456789012') {
+      this.router.navigate(['registeredStudents']);
+    } else {
+      await this.delay(30).then( () => {
+          this.verifyingOtp = false;
+          stepper.next();
+        }
+      );
+    }
+
+    
   }
 
   async fetchIfscInfo() {
@@ -213,7 +225,7 @@ export class StudentRegistrationComponent implements OnInit {
 
   async saveBankDetails(stepper:any) {
     this.savingBankDetails = true;
-    await this.delay(3000).then( () => {
+    await this.delay(30).then( () => {
       this.savingBankDetails = false;
       stepper.next();
     });
@@ -277,4 +289,16 @@ export class StudentRegistrationComponent implements OnInit {
         }, 200);
     }
   }
+
+  schoolInfo = [
+    {"standard": "6th"},
+    {"standard": "7th"},
+    {"standard": "8th"},
+    {"standard": "9th"},
+    {"standard": "10th"},
+    {"standard": "11th"},
+    {"standard": "12th"},
+  ]
+
+  schoolInfoDisplayedColumns = ['Year', 'District', 'School']
 }

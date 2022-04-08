@@ -1,0 +1,78 @@
+<div class="stepper-header"><b>STUDENT PROFILE</b></div>
+<mat-divider></mat-divider>
+<mat-stepper linear #stepper (selectionChange)="onChange($event)" style="text-align: center!important">
+  <mat-step [stepControl]="emisNumberFormGroup" [completed]="eligibleForScholorship">
+    <form [formGroup]="emisNumberFormGroup">
+      <ng-template matStepLabel><span class="steplabel">Institution details</span></ng-template>
+      <table>
+        <tr>
+          <td style="padding: 15px;">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>EMIS Number</mat-label>
+                <input matInput formControlName="emisNumberCtrl" autocomplete="off">
+                <mat-error>Please enter a valid EMIS Number</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>School District</mat-label>
+                    <input matInput formControlName="district" autocomplete="off">
+                    <mat-error>Please enter a valid EMIS Number</mat-error>
+                  </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>School Name</mat-label>
+                <input matInput formControlName="schoolName" autocomplete="off">
+                <mat-error>Please enter a school name</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput mask="0000000000" formControlName="mobileNumber" autocomplete="off">
+                <mat-error>Please enter a valid mobile number</mat-error>
+              </mat-form-field>
+            </div>
+          </td>
+          <td>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>College District</mat-label>
+                    <input matInput formControlName="typeOfCollege" autocomplete="off">
+                    <mat-error>Please enter a valid mobile number</mat-error>
+                  </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>College District</mat-label>
+                    <input matInput formControlName="institution" autocomplete="off">
+                    <mat-error>Please enter a valid mobile number</mat-error>
+                  </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Graduating Year</mat-label>
+                <input matInput mask="0000" formControlName="graduatingYear" autocomplete="off">
+                <mat-error>Please enter a valid year</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Email ID</mat-label>
+                <input matInput formControlName="emailId" autocomplete="off"
+                  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+                <mat-error>Please enter a email id</mat-error>
+              </mat-form-field>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div style="justify-content:center"><button mat-button mat-raised-button color="primary"
+          (click)="gotoProfileHome()">UPDATE</button>
+      </div>
+    </form>
+  </mat-step>
+  
+</mat-stepper>

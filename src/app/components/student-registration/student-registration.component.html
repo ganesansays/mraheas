@@ -1,6 +1,6 @@
-<div class="stepper-header"><b>Student Registration</b></div>
+<div class="stepper-header"><b>STUDENT REGISTRATION</b></div>
 <mat-divider></mat-divider>
-<mat-stepper linear #stepper (selectionChange)="onChange($event)" style="text-align: center!important">
+<mat-stepper linear #stepper (selectionChange)="onChange($event)" style="text-align: center!important; justify-content: center!important;">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel><span class="steplabel">Login using your Aadhaar</span></ng-template>
@@ -8,7 +8,7 @@
       <mat-form-field #aadhaarNumber appearance="fill">
         <mat-label>Aadhaar Number</mat-label>
         <input class="mat-h1" #aadhaarNumber matInput placeholder="____-____-____" formControlName="firstCtrl"
-          mask="0000-0000-0000" autofocus required>
+          autofocus>
         <mat-error>Please enter a valid Aadhaar Number</mat-error>
       </mat-form-field>
       <div [hidden]="!otpSent">OTP is sent to your mobile nuber XXX-XXX-3456</div>
@@ -33,8 +33,7 @@
       <div [hidden]="!otpSent">
         <mat-form-field appearance="fill">
           <mat-label>OTP</mat-label>
-          <input #secondCtrl matInput placeholder="__ __ __ __ __ __" formControlName="secondCtrl" mask="000000"
-            required autocomplete="off">
+          <input #secondCtrl matInput placeholder="__ __ __ __ __ __" formControlName="secondCtrl" autocomplete="off">
           <mat-error>Please enter a valid OTP</mat-error>
         </mat-form-field>
         <div [hidden]="verifyingOtp">
@@ -56,14 +55,14 @@
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>EMIS Number</mat-label>
-                <input matInput mask="00000000" formControlName="emisNumberCtrl" required autocomplete="off">
+                <input matInput formControlName="emisNumberCtrl" autocomplete="off">
                 <mat-error>Please enter a valid EMIS Number</mat-error>
               </mat-form-field>
             </div>
-            <div>
+            <!-- <div>
               <mat-form-field appearance="fill">
-                <mat-label>School Distrct</mat-label>
-                <mat-select [formControl]="district" required [(value)]="selectedDistrict">
+                <mat-label>School District</mat-label>
+                <mat-select [formControl]="district" [(value)]="selectedDistrict">
                   <mat-select-trigger>
                     {{district.value}}
                   </mat-select-trigger>
@@ -75,23 +74,31 @@
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>School Name</mat-label>
-                <input matInput formControlName="schoolName" required autocomplete="off">
+                <input matInput formControlName="schoolName">
                 <mat-error>Please enter a school name</mat-error>
+              </mat-form-field>
+            </div> -->
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput mask="0000000000" formControlName="mobileNumber" autocomplete="off">
+                <mat-error>Please enter a valid mobile number</mat-error>
               </mat-form-field>
             </div>
             <div>
               <mat-form-field appearance="fill">
-                <mat-label>Mobile Number</mat-label>
-                <input matInput mask="0000000000" formControlName="mobileNumber" required autocomplete="off">
-                <mat-error>Please enter a valid mobile number</mat-error>
+                <mat-label>Email ID</mat-label>
+                <input matInput formControlName="emailId" autocomplete="off"
+                  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+                <mat-error>Please enter a email id</mat-error>
               </mat-form-field>
             </div>
           </td>
           <td>
             <div>
               <mat-form-field appearance="fill">
-                <mat-label>Colledge District</mat-label>
-                <mat-select [formControl]="typeOfCollege" required [(value)]="selectedTypeOfCollege">
+                <mat-label>College District</mat-label>
+                <mat-select [formControl]="typeOfCollege" [(value)]="selectedTypeOfCollege">
                   <mat-select-trigger>
                     {{typeOfCollege.value}}
                   </mat-select-trigger>
@@ -104,7 +111,7 @@
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>College</mat-label>
-                <mat-select [formControl]="institution" required [(value)]="selectedInstitution">
+                <mat-select [formControl]="institution" [(value)]="selectedInstitution">
                   <mat-select-trigger>
                     {{institution.value}}
                   </mat-select-trigger>
@@ -117,24 +124,65 @@
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>Graduating Year</mat-label>
-                <input matInput mask="0000" formControlName="graduatingYear" required autocomplete="off">
+                <input matInput mask="0000" formControlName="graduatingYear" autocomplete="off">
                 <mat-error>Please enter a valid year</mat-error>
               </mat-form-field>
             </div>
-            <div>
-              <mat-form-field appearance="fill">
-                <mat-label>Email ID</mat-label>
-                <input matInput formControlName="emailId" required autocomplete="off"
-                  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
-                <mat-error>Please enter a email id</mat-error>
-              </mat-form-field>
-            </div>
+            
           </td>
         </tr>
       </table>
       <div style="justify-content:center"><button mat-button mat-raised-button color="primary"
-          (click)="checkEligibility(stepper)">PROCEED TO BANK DETAILS</button>
+          (click)="checkEligibility(stepper)">PROCEED TO SCHOOL DETAILS</button>
       </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="studentSchoolFormGroup">
+    <ng-template matStepLabel><span class="steplabel">School Info</span></ng-template>
+    <form [formGroup]="studentSchoolFormGroup">
+      <div class="student-info-table-container">
+        <table mat-table [dataSource]="schoolInfo" class="mat-elevation-z2">
+          <ng-container matColumnDef="Year">
+            <th mat-header-cell *matHeaderCellDef>
+              Year
+            </th>
+            <td mat-cell *matCellDef="let row">
+              {{row.standard}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="District">
+            <th mat-header-cell *matHeaderCellDef>
+              District
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-form-field class="yearDropDown" appearance="fill">
+                <mat-label>District</mat-label>
+                <mat-select [formControl]="district" [(value)]="selectedDistrict">
+                  <mat-select-trigger>
+                    {{district.value}}
+                  </mat-select-trigger>
+                  <mat-option *ngFor="let district of districts" [value]="district">{{district}}</mat-option>
+                </mat-select>
+                <mat-error>Please select the district of your college</mat-error>
+              </mat-form-field>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="School">
+            <th mat-header-cell *matHeaderCellDef>
+              School
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-form-field appearance="fill">
+                <mat-label>School</mat-label>
+                <input matInput style="width:5ch">
+              </mat-form-field>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="schoolInfoDisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: schoolInfoDisplayedColumns;"></tr>
+        </table>
+      </div>
+      <button mat-button mat-raised-button matStepperNext color="primary" style="margin: 15px;">PROCEED TO BANK DETAILS</button>
     </form>
   </mat-step>
   <mat-step [stepControl]="thirdFormGroup">
@@ -147,9 +195,10 @@
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>IFSC Code</mat-label>
-                <input id="ifscCode" autofocus matInput formControlName="firstCtrl" required mask="SSSS0000000"
+                <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000"
                   (focusout)="fetchIfscInfo()">
-                <mat-icon matSuffix (click)="fetchIfscInfo();forthFormDirective.resetForm();forthFormGroup.reset();">search
+                <mat-icon matSuffix (click)="fetchIfscInfo();forthFormDirective.resetForm();forthFormGroup.reset();">
+                  search
                 </mat-icon>
                 <mat-error>Please enter a valid IFSC code</mat-error>
               </mat-form-field>
@@ -157,12 +206,12 @@
             <div [hidden]="!ifscFetching">
               <mat-spinner></mat-spinner>
             </div>
-              <div [attr.disabled]="true" [hidden]="ifscFetching">
-                <mat-form-field appearance="fill">
-                  <mat-label>Bank Name</mat-label>
-                  <input matInput readonly [value]="bankName">
-                </mat-form-field>
-              </div>
+            <div [attr.disabled]="true" [hidden]="ifscFetching">
+              <mat-form-field appearance="fill">
+                <mat-label>Bank Name</mat-label>
+                <input matInput readonly [value]="bankName">
+              </mat-form-field>
+            </div>
           </form>
         </td>
         <td style="padding-right: 15px;">
@@ -172,7 +221,7 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Account number</mat-label>
                   <input #accountNumber matInput formControlName="thirdCtrl" type="password" mask="AAAAAAAAAA999999"
-                    [readonly]="bankName == ''" required>
+                    [readonly]="bankName == ''">
                   <mat-error>Please enter a valid Account number</mat-error>
                 </mat-form-field>
               </div>
@@ -180,40 +229,41 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Re-enter account number</mat-label>
                   <input #reenterAccountNumber matInput formControlName="forthCtrl" mask="AAAAAAAAAA999999"
-                    [readonly]="bankName == ''" required>
+                    [readonly]="bankName == ''">
                   <mat-error
                     *ngIf="forthFormGroup.get('forthCtrl')?.errors && !forthFormGroup.get('forthCtrl')?.hasError('notEqualError')">
                     Please enter a valid Account number</mat-error>
-                  <mat-error *ngIf="forthFormGroup.get('forthCtrl')?.hasError('notEqualError')">Account Number not matching
+                  <mat-error *ngIf="forthFormGroup.get('forthCtrl')?.hasError('notEqualError')">Account Number not
+                    matching
                   </mat-error>
                 </mat-form-field>
-      
+
               </div>
             </div>
           </form>
         </td>
       </tr>
-      <tr >
+      <tr>
         <td style="padding-right: 15px;">
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Account Holder's Name</mat-label>
-              <input matInput formControlName="fifthCtrl" [readonly]="bankName == ''" required>
+              <input matInput formControlName="fifthCtrl" [readonly]="bankName == ''">
               <mat-error>Please enter account holder's name</mat-error>
             </mat-form-field>
-  
+
           </div>
         </td>
       </tr>
     </table>
-    
+
     <div [hidden]="savingBankDetails">
       <button mat-button mat-raised-button color="primary" (click)="saveBankDetails(stepper)">SUBMIT</button>
     </div>
     <div [hidden]="!savingBankDetails" style="margin-top:20px">
       <mat-spinner></mat-spinner>
-    </div>    
-    
+    </div>
+
   </mat-step>
   <mat-step>
     <ng-template matStepLabel><span class="steplabel">Done</span></ng-template>

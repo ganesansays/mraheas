@@ -16,9 +16,16 @@ export class EducationDepartmentAssessmentComponent implements OnInit {
     
   }
 
+  ngAfterViewInit() {
+    document.getElementById('html')?.setAttribute("style", "overflow:scroll!important;");
+  }
+
   logout() {
     localStorage.setItem('user', '');
     this.router.navigate(['']);
   }
 
+  navigateToDisbursement() {
+    this.router.navigate(['educationDepartment']);
+  }
 }

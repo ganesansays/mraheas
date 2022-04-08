@@ -2,6 +2,13 @@
     <mat-card-title>Login</mat-card-title>
 <mat-card-content>
 <form [formGroup]="form" (ngSubmit)="submit()">
+    <section class="example-section">
+      <label class="example-margin">Department:</label>
+      <mat-radio-group>
+        <mat-radio-button class="example-margin" value="after">CEO/DC</mat-radio-button>
+        <mat-radio-button class="example-margin" value="before">Dean/Director</mat-radio-button>
+      </mat-radio-group>
+    </section>
   <p>
     <mat-form-field>
       <input type="text" matInput placeholder="Username" formControlName="username">

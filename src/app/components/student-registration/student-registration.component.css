@@ -59,6 +59,45 @@ justify-content: center;
     font-size: medium;
 }
 
-.mat-stepper-horizontal {
+::ng-deep .mat-stepper-horizontal {
     background-color: transparent;
+    text-align: center;
+    justify-content: center;
+}
+
+input{
+    text-align: center;
+ }
+
+ ::ng-deep .yearDropDown {
+    width: 20px;
+ }
+
+ .student-info-table-container {
+     width: 900px;
+ }
+
+ .mat-header-cell {
+    padding: 2px;
+    font-weight:  bolder;
+    font-size: medium;
+    text-align: center;
+}
+
+table {
+    background-color: transparent;
+    margin: auto;
+}
+
+td, tr {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mat-cell {
+    padding: 2px;
+    font-size:medium;
 }

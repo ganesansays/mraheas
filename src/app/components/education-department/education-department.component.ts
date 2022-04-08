@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { StudentInfoService } from 'src/app/services/student-info.service';
+import { ApprovalMessageComponent } from '../approval-message/approval-message.component';
+import { DisburseSnackBarComponent } from '../disburse-snack-bar/disburse-snack-bar.component';
 
 @Component({
   selector: 'app-education-department',
@@ -20,14 +23,14 @@ export class EducationDepartmentComponent implements OnInit {
 
   // "name": "Thamizh Mozhi",
   // "aadhaarNumber": "1234567890123456",
-  // "ugColledge": "Goverment Arts Colledge",
+  // "ugColledge": "Government Arts Colledge",
   // "district": "Trichirapalli",
   // "year": 2022,
   // "term1Status": "Approved",
   // "term2Status": "Not Approved" 
-  displayedColumns = ['Select', 'Year', 'District', 'Institution', 'Aadhaar Number', 'Name', 'Term 1 Status', 'Term 2 Status', 'Account Number']
+  displayedColumns = ['Select', 'Year', 'District', 'Institution', 'Aadhaar Number', 'Name', 'Term 1 Status', 'Account Number']
 
-  constructor(private studentInfoService: StudentInfoService, private router: Router) { 
+  constructor(private studentInfoService: StudentInfoService, private router: Router, private _snackBar: MatSnackBar) { 
 
     this.filterSelectObj = [
       {
@@ -116,5 +119,12 @@ export class EducationDepartmentComponent implements OnInit {
 
   showAnalytics() {
     this.router.navigate(['educationDepartmentAssessment'])
+  }
+
+  approve() {
+    this._snackBar.openFromComponent(DisburseSnackBarComponent, {
+      duration: 2000
+    });
+    return false;
   }
 }

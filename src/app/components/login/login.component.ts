@@ -11,7 +11,16 @@ export class LoginComponent implements OnInit {
 
   constructor(private router:Router, private activatedRoute: ActivatedRoute) { }
 
+  departments = ['CEO/DC', 'Dean/Director']
+
+  departmentsFormControl : FormControl;
+  department : any;
+
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    document.getElementById('html')?.setAttribute("style", "overflow:scroll!important;");
   }
 
   form: FormGroup = new FormGroup({

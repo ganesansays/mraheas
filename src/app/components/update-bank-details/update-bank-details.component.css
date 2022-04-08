@@ -1,0 +1,64 @@
+.mat-form-field {
+    margin-top: 16px;
+    font-size: medium;
+    width: 300px;
+  }
+  
+  ::ng-deep .mat-horizontal-stepper-header-container {
+      display: none !important;
+    }
+  
+  .mat-divider {
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+  
+  .stepper-header {
+      font-size: x-large;
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .steplabel {
+      font-size: large;
+  }
+  
+  /* ::ng-deep .mat-vertical-stepper-content {
+      border-color: lightgray;
+      border-style: solid;
+      border-radius: 10px;
+      margin: 15px;
+  }  */
+  
+  ::ng-deep .mat-step-header .mat-step-icon-selected {
+      background-color: red;
+   }
+  
+   .done {
+       margin-top: 16px;
+       font-size: large;
+       text-align: center;
+   }
+  
+   .mat-spinner {
+       margin: 5px;
+   }
+  
+   .numberCircle {
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      padding: 8px;
+  
+      background: lightgray;
+      color: white;
+      border: 2px solid white;
+      text-align: center;
+  
+      font-size: medium;
+  }
+  
+  .mat-stepper-horizontal {
+      background-color: transparent;
+  }

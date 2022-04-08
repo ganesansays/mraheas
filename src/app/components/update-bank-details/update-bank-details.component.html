@@ -1,0 +1,81 @@
+<div class="stepper-header"><b>Welcome Tamizh Mozhi</b></div>
+<mat-divider></mat-divider>
+<mat-stepper linear #stepper (selectionChange)="onChange($event)" style="text-align: center!important">
+  <mat-step [stepControl]="thirdFormGroup">
+    <table>
+      <tr>
+        <td style="padding-right: 15px;">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel><span class="steplabel">Provide bank details</span></ng-template>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>IFSC Code</mat-label>
+                <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000"
+                  (focusout)="fetchIfscInfo()">
+                <mat-icon matSuffix (click)="fetchIfscInfo();forthFormDirective.resetForm();forthFormGroup.reset();">search
+                </mat-icon>
+                <mat-error>Please enter a valid IFSC code</mat-error>
+              </mat-form-field>
+            </div>
+            <div [hidden]="!ifscFetching">
+              <mat-spinner></mat-spinner>
+            </div>
+              <div [attr.disabled]="true" [hidden]="ifscFetching">
+                <mat-form-field appearance="fill">
+                  <mat-label>Bank Name</mat-label>
+                  <input matInput readonly [value]="bankName">
+                </mat-form-field>
+              </div>
+          </form>
+        </td>
+        <td style="padding-right: 15px;">
+          <form [formGroup]="forthFormGroup" #forthFormDirective="ngForm">
+            <div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Account number</mat-label>
+                  <input #accountNumber matInput formControlName="thirdCtrl" type="password" mask="AAAAAAAAAA999999"
+                    [readonly]="bankName == ''">
+                  <mat-error>Please enter a valid Account number</mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Re-enter account number</mat-label>
+                  <input #reenterAccountNumber matInput formControlName="forthCtrl" mask="AAAAAAAAAA999999"
+                    [readonly]="bankName == ''">
+                  <mat-error
+                    *ngIf="forthFormGroup.get('forthCtrl')?.errors && !forthFormGroup.get('forthCtrl')?.hasError('notEqualError')">
+                    Please enter a valid Account number</mat-error>
+                  <mat-error *ngIf="forthFormGroup.get('forthCtrl')?.hasError('notEqualError')">Account Number not matching
+                  </mat-error>
+                </mat-form-field>
+      
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <tr >
+        <td style="padding-right: 15px;">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Account Holder's Name</mat-label>
+              <input matInput formControlName="fifthCtrl" [readonly]="bankName == ''">
+              <mat-error>Please enter account holder's name</mat-error>
+            </mat-form-field>
+  
+          </div>
+        </td>
+      </tr>
+    </table>
+    
+    <div [hidden]="savingBankDetails">
+      <button mat-button mat-raised-button color="primary" (click)="gotoProfileHome()">UPDATE</button>
+    </div>
+    <div [hidden]="!savingBankDetails" style="margin-top:20px">
+      <mat-spinner></mat-spinner>
+    </div>    
+    
+  </mat-step>
+</mat-stepper>

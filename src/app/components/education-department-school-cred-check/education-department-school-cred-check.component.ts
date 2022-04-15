@@ -68,12 +68,12 @@ export class EducationDepartmentSchoolCredCheckComponent implements OnInit {
   ];
 
   institutions: string[] = [
-  'Anna University of Technology Tiruchirappalli – Ariyalur Campus',
-  'District Institute of Education and Training(DIET)',
-  'Government Arts College',
-  'Government ITI, Ariyalur',
-  'Government ITI, Andimadam',
-  'Government Polytechnic College'
+  'Aalm Metric',
+  'MLM Metric',
+  'Gandhi Aided School',
+  'Aalm Metric',
+  'MLM Metric',
+  'Gandhi Aided School'
   ];
 
 

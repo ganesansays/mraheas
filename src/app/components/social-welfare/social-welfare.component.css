@@ -1,0 +1,16 @@
+::ng-deep .mat-grid-tile-content {
+    display: block!important;
+}
+
+.mat-grid-tile {
+    margin: 10x!important;
+    text-align: center;
+}
+
+.header {
+    font-size: x-large;
+    width: 100%;
+    /* text-align: center; */
+    padding-bottom: 20px;
+}
+

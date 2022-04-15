@@ -15,12 +15,23 @@ export class LoginComponent implements OnInit {
 
   departmentsFormControl : FormControl;
   department : any;
-  isInstituteLogin : any;
+  isEduDeptLogin : any = false;
+  departmentName : any;
   value: any;
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
-      this.isInstituteLogin = params['url'].includes('instituteAnalytics');
+
+      if(params['url'].includes('educationDepartmentAssessment')) {
+        this.isEduDeptLogin = true;
+        this.departmentName = "EDU. DEPT.";
+      } else if (params['url'].includes('instituteAnalytics')) {
+        this.departmentName = "COLLEGE";
+      } else if (params['url'].includes('socialWelfare')) {
+        this.departmentName = "SOCIAL WELFARE DEPT.";
+      }
+      console.log(params['url']);
+      console.log(this.isEduDeptLogin);
     });
   }
 

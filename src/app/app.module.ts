@@ -35,6 +35,7 @@ import { StudentDocumentsComponent } from './components/student-documents/studen
 import { EducationDepartmentSchoolingComponent } from './components/education-department-schooling/education-department-schooling.component';
 import { EducationDepartmentInspectionComponent } from './components/education-department-inspection/education-department-inspection.component';
 import { EducationDepartmentSchoolCredCheckComponent } from './components/education-department-school-cred-check/education-department-school-cred-check.component';
+import { SocialWelfareComponent } from './components/social-welfare/social-welfare.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { EducationDepartmentSchoolCredCheckComponent } from './components/educat
     StudentDocumentsComponent,
     EducationDepartmentSchoolingComponent,
     EducationDepartmentInspectionComponent,
-    EducationDepartmentSchoolCredCheckComponent
+    EducationDepartmentSchoolCredCheckComponent,
+    SocialWelfareComponent
   ],
   imports: [
     BrowserModule,
@@ -81,11 +83,12 @@ import { EducationDepartmentSchoolCredCheckComponent } from './components/educat
       { path: 'instituteAdmin', component: InstituteAdminComponent, canActivate : [AuthGuardService] },
       { path: 'instituteAnalytics', component: InstitutionAnalyticsComponent, canActivate : [AuthGuardService] },
       { path: 'instituteValidateSchooling', component: InstituteSchoolingValidationComponent, canActivate : [AuthGuardService] },
-      { path: 'educationDepartment', component: EducationDepartmentComponent, canActivate : [AuthGuardService] },
+      { path: 'disbursement', component: EducationDepartmentComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartmentSchooling', component: EducationDepartmentSchoolingComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartmentInspection', component: EducationDepartmentInspectionComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartmentAssessment', component: EducationDepartmentAssessmentComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartmentCredCheck', component: EducationDepartmentSchoolCredCheckComponent, canActivate : [AuthGuardService] },
+      { path: 'socialWelfare', component: SocialWelfareComponent, canActivate : [AuthGuardService] },
       { path: 'login', component: LoginComponent },
     ], { useHash: true }),
     NgChartsModule

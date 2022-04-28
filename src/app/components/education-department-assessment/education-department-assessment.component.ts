@@ -16,7 +16,9 @@ export class EducationDepartmentAssessmentComponent implements OnInit {
 
   constructor(private studentInfoService: StudentInfoService, private router: Router, private _snackBar: MatSnackBar) {
     var user = localStorage.getItem('user');
-    this.type = JSON.parse(user?user:'{}').type;
+    // this.type = JSON.parse(user?user:'{}').type;
+
+    this.type = "CEO";
 
     this.filterSelectObj = [
       {

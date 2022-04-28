@@ -38,6 +38,10 @@ export class RegisteredStudentsComponent implements OnInit {
     this.router.navigate(['studentDocuments']);
   }
 
+  showGrievance() {
+    this.router.navigate(['studentGrievance']);
+  }
+
   logout() {
     localStorage.setItem('user', '');
     this.router.navigate(['']);

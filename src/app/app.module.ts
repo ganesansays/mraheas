@@ -36,6 +36,10 @@ import { EducationDepartmentSchoolingComponent } from './components/education-de
 import { EducationDepartmentInspectionComponent } from './components/education-department-inspection/education-department-inspection.component';
 import { EducationDepartmentSchoolCredCheckComponent } from './components/education-department-school-cred-check/education-department-school-cred-check.component';
 import { SocialWelfareComponent } from './components/social-welfare/social-welfare.component';
+import { EducationDepartmentEmisApprovalComponent } from './components/education-department-emis-approval/education-department-emis-approval.component';
+import { StudentGrievanceComponent } from './components/student-grievance/student-grievance.component';
+import { HodAddressGrievanceComponent } from './components/hod-address-grievance/hod-address-grievance.component';
+import { HodDashboardComponent } from './components/hod-dashboard/hod-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { SocialWelfareComponent } from './components/social-welfare/social-welfa
     EducationDepartmentSchoolingComponent,
     EducationDepartmentInspectionComponent,
     EducationDepartmentSchoolCredCheckComponent,
-    SocialWelfareComponent
+    SocialWelfareComponent,
+    EducationDepartmentEmisApprovalComponent,
+    StudentGrievanceComponent,
+    HodAddressGrievanceComponent,
+    HodDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +86,7 @@ import { SocialWelfareComponent } from './components/social-welfare/social-welfa
       { path: 'updateStudentProfile', component: StudentProfileComponent },
       { path: 'studentDisbursement', component: StudentDisbursementComponent },
       { path: 'studentDocuments', component: StudentDocumentsComponent },
+      { path: 'studentGrievance', component: StudentGrievanceComponent },
       { path: 'registeredStudents', component: RegisteredStudentsComponent },
       { path: 'updateBankDetails', component: UpdateBankDetailsComponent },
       { path: 'instituteAdmin', component: InstituteAdminComponent, canActivate : [AuthGuardService] },
@@ -88,7 +97,10 @@ import { SocialWelfareComponent } from './components/social-welfare/social-welfa
       { path: 'educationDepartmentInspection', component: EducationDepartmentInspectionComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartmentAssessment', component: EducationDepartmentAssessmentComponent, canActivate : [AuthGuardService] },
       { path: 'educationDepartmentCredCheck', component: EducationDepartmentSchoolCredCheckComponent, canActivate : [AuthGuardService] },
+      { path: 'educationDepartmentApproveStudent', component: EducationDepartmentEmisApprovalComponent, canActivate : [AuthGuardService] },
       { path: 'socialWelfare', component: SocialWelfareComponent, canActivate : [AuthGuardService] },
+      { path: 'hodAddressGrievance', component: HodAddressGrievanceComponent, canActivate : [AuthGuardService] },
+      { path: 'hodDashboard', component: HodDashboardComponent, canActivate : [AuthGuardService] },
       { path: 'login', component: LoginComponent },
     ], { useHash: true }),
     NgChartsModule

@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
         this.departmentName = "COLLEGE";
       } else if (params['url'].includes('socialWelfare')) {
         this.departmentName = "SOCIAL WELFARE DEPT.";
+      } else if (params['url'].includes('hodDashboard')) {
+        this.departmentName = "HOD";
       }
       console.log(params['url']);
       console.log(this.isEduDeptLogin);

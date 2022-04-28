@@ -1,0 +1,72 @@
+::ng-deep .mat-grid-tile-content {
+    display: block!important;
+}
+
+.mat-grid-tile {
+    margin: 10x!important;
+    text-align: center;
+}
+
+.header {
+    font-size: x-large;
+    width: 100%;
+    /* text-align: center; */
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+}
+
+.mat-divider {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    padding: 15px;
+    font-weight:  bolder;
+    font-size: medium;
+}
+
+td, tr {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.mat-cell {
+    padding: 15px;
+    font-size:medium;
+}
+
+.Approved {
+    color: green;
+}
+
+/*.NotApproved {
+    color: red;
+}
+
+.Disbursed {
+    color: green;
+} */
+
+.mat-row:nth-child(even){
+    background-color: #FAFAFA;
+}
+        
+.mat-row:nth-child(odd){
+    background-color: #EEEEEE;
+}
+
+.mat-header-cell {
+    background: #9E9E9E;
+    color: black;
+}
+
+.mat-header-row {
+    min-height: 10px;
+}

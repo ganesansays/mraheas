@@ -10,38 +10,36 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="2">
         <div style="width: 850px; margin-left: 50px;">
+            <!-- <div style="display: flex;
+            align-items: center;
+            justify-content: center; margin-bottom: 20px;">
+                <p align=center style="margin-right: 10px; width: 650px; font-size: 25px; font-weight: bold;">Welcome to Integrated scholarship portal</p>
+            </div> -->
             <div style="display: flex;
             align-items: center;
             justify-content: center; margin-bottom: 20px;">
-                <!-- <a [routerLink]="'studentRegistration'"><button mat-flat-button color="primary" style="margin-right: 10px; background-color: #ffcc33; color: #261c19; width: 200px">About the Scheme</button></a> -->
-                <p align=center style="margin-right: 10px; width: 650px; font-size: 18px; font-weight: bold;">About the Scheme</p>
+                <p align=center style="margin-right: 10px; width: 650px; font-size: 18px; font-weight: bold;">Please select the scholorship program to proceed.</p>
             </div>
-            <div style="display: flex;
+            <!-- <div style="display: flex;
             align-items: center;
             justify-content: center;">
                 <p align=justify style="width: 650px; font-size: 22px; line-height: 1.2;">Tamil Nadu Government has launched Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme 2022 aimed at
                 increasing the enrollment rate of girl students from government schools in higher education. Under this scheme,
                 the state government will provide monthly scholarship of Rs. 1000 each to girl students from government schools.
                 This amount will be given until girls completes their undergraduate, diploma, and ITI courses.</p>
-            </div>
+            </div> -->
             <div style="display: flex;
             align-items: center;
             justify-content: center; margin-top: 20px;">
-                <mat-form-field appearance="fill">
-                    <mat-label>Scholarship scheme</mat-label>
-                    <mat-select>
-                    <mat-select-trigger>
-                        Moovalur Ramamritham Higher Education Assurance Scheme
-                    </mat-select-trigger>
-                    <mat-option value="mraheas">Moovalur Ramamritham Higher Education Assurance Scheme</mat-option>
-                    <mat-option value="mraheas">Fee Waiver for Govt School students (7.5%)</mat-option>
-                    <mat-option value="mraheas">Post Matric for First Graduate Students</mat-option>
-                    <mat-option value="mraheas">Incentive Scheme for PhD students</mat-option>
-                    <mat-option value="mraheas">Post Matric Scholarship Colleges</mat-option>
-                    </mat-select>
-                    <mat-error>Please select the type of your college</mat-error>
-                </mat-form-field>
+                <mat-radio-group name="depttype" style="font-size: 20px">
+                    <div style="margin: 10px"><mat-radio-button class="example-margin" [value]="'CEO'">Moovalur Ramamritham Higher Education Assurance Scheme</mat-radio-button></div>
+                    <div style="margin: 10px"><mat-radio-button class="example-margin" [value]="'DEAN'">Fee Waiver for Govt School students (7.5%)</mat-radio-button></div>
+                    <div style="margin: 10px"><mat-radio-button class="example-margin" [value]="'DEAN'">Post Matric for First Graduate Students</mat-radio-button></div>
+                    <div style="margin: 10px"><mat-radio-button class="example-margin" [value]="'DEAN'">Incentive Scheme for PhD students</mat-radio-button></div>
+                    <div style="margin: 10px"><mat-radio-button class="example-margin" [value]="'DEAN'">Post Matric Scholarship Colleges</mat-radio-button></div>
+                </mat-radio-group>
             </div>
+            
             <div style="display: flex;
             align-items: center;
             justify-content: center; margin-top: 20px;">

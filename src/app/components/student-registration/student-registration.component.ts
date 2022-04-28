@@ -132,13 +132,16 @@ export class StudentRegistrationComponent implements OnInit {
       forthCtrl: [''],
     });
     this.emisNumberFormGroup = this._formBuilder.group({
+      emisNumberAvailable: ['no'],
       emisNumberCtrl: [''],
       district: [''],
       institution: [''],
       schoolName: [''],
       mobileNumber: [''],
       graduatingYear: [''],
-      emailId: ['']
+      emailId: [''],
+      course: [''],
+      courseTenure: ['']
     });
 
   }

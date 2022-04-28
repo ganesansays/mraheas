@@ -51,6 +51,9 @@ export class StudentProfileComponent implements OnInit {
   accountNumberValue = "";
   reenterAccountNumberValue = "";
 
+  checked = true;
+  maritalStatus = "Married";
+
   districts: string[] = ['Ariyalur',
   'Karur',
   'Nagappattinam',
@@ -130,7 +133,11 @@ export class StudentProfileComponent implements OnInit {
       mobileNumber: ['8955687654'],
       graduatingYear: ['2024'],
       emailId: ['myemail@gmail.com'],
-      typeOfCollege: ['Ariyalur']
+      typeOfCollege: ['Ariyalur'],
+      nameOfTheCourse: ['BSc Mathematics'],
+      courseTenure: ['3'],
+      yearOfAdmission: ['2021'],
+      maritalStatus: ['married']
     });
 
   }

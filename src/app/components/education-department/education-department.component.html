@@ -131,7 +131,7 @@
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr [hidden]="!isFiltered" mat-header-row *matHeaderRowDef="['blank', 'year-filter', 'district-filter', 'institution-filter', 'blank', 'blank', 'status-filter', 'blank', 'blank']"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.redrow]="row.term2Status != 'Approved' && row.accountNumber == 'XXXXXXXXXXXX1245'"></tr>
         </table>
     </div>
     <mat-paginator 

@@ -27,6 +27,24 @@
             <div style="display: flex;
             align-items: center;
             justify-content: center; margin-top: 20px;">
+                <mat-form-field appearance="fill">
+                    <mat-label>Scholarship scheme</mat-label>
+                    <mat-select>
+                    <mat-select-trigger>
+                        Moovalur Ramamritham Higher Education Assurance Scheme
+                    </mat-select-trigger>
+                    <mat-option value="mraheas">Moovalur Ramamritham Higher Education Assurance Scheme</mat-option>
+                    <mat-option value="mraheas">Fee Waiver for Govt School students (7.5%)</mat-option>
+                    <mat-option value="mraheas">Post Matric for First Graduate Students</mat-option>
+                    <mat-option value="mraheas">Incentive Scheme for PhD students</mat-option>
+                    <mat-option value="mraheas">Post Matric Scholarship Colleges</mat-option>
+                    </mat-select>
+                    <mat-error>Please select the type of your college</mat-error>
+                </mat-form-field>
+            </div>
+            <div style="display: flex;
+            align-items: center;
+            justify-content: center; margin-top: 20px;">
                 <button (click)="navigateToLogin()" mat-flat-button color="primary" style="margin-right: 10px; background-color: #ffcc33; color: #261c19; width: 200px">LOGIN</button>
             </div>
         </div>

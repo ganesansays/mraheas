@@ -35,21 +35,48 @@
                 <mat-error>Please enter a valid mobile number</mat-error>
               </mat-form-field>
             </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Email ID</mat-label>
+                <input matInput formControlName="emailId" autocomplete="off"
+                  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+                <mat-error>Please enter a email id</mat-error>
+              </mat-form-field>
+            </div>
+            <div style="text-align: left; margin-top: 40px; margin-bottom: 35px">
+              <mat-checkbox class="example-margin">
+                Differently abled
+              </mat-checkbox>
+            </div>
+            <!-- <div style="text-align: left; margin-top: 65px; margin-bottom: 25px">
+              <label class="example-margin" style="margin-right: 15px;">Marital status:</label>
+              <mat-radio-group formControlName="maritalStatus">
+                <mat-radio-button style="margin-right: 15px" class="example-margin" value="married">Married</mat-radio-button>
+                <mat-radio-button class="example-margin" value="unmarried">Unmarried</mat-radio-button>
+              </mat-radio-group>
+            </div> -->
           </td>
           <td>
             <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>College District</mat-label>
-                    <input matInput formControlName="typeOfCollege" autocomplete="off">
-                    <mat-error>Please enter a valid mobile number</mat-error>
-                  </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Name of the course</mat-label>
+                <input matInput formControlName="nameOfTheCourse" autocomplete="off">
+                <mat-error>Please enter a valid year</mat-error>
+              </mat-form-field>
             </div>
             <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>College District</mat-label>
-                    <input matInput formControlName="institution" autocomplete="off">
-                    <mat-error>Please enter a valid mobile number</mat-error>
-                  </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Course tenure</mat-label>
+                <input matInput mask="0000" formControlName="courseTenure" autocomplete="off">
+                <mat-error>Please enter a valid year</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Year of admission</mat-label>
+                <input matInput mask="0000" formControlName="yearOfAdmission" autocomplete="off">
+                <mat-error>Please enter a valid year</mat-error>
+              </mat-form-field>
             </div>
             <div>
               <mat-form-field appearance="fill">
@@ -59,16 +86,28 @@
               </mat-form-field>
             </div>
             <div>
-              <mat-form-field appearance="fill">
-                <mat-label>Email ID</mat-label>
-                <input matInput formControlName="emailId" autocomplete="off"
-                  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
-                <mat-error>Please enter a email id</mat-error>
-              </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>College District</mat-label>
+                    <input matInput formControlName="typeOfCollege" autocomplete="off">
+                    <mat-error>Please enter a valid mobile number</mat-error>
+                  </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>College</mat-label>
+                    <input matInput formControlName="institution" autocomplete="off">
+                    <mat-error>Please enter a valid mobile number</mat-error>
+                  </mat-form-field>
             </div>
           </td>
         </tr>
       </table>
+      <div style="margin-bottom: 15px">
+        <div>Institution Code: ICODE0001</div>
+        <div>Type of Institution: Government</div>
+        <div>Address: 43WF, Rajajinagar, Ariyalur</div>
+        <div>Tamil Nadu 621713</div>
+      </div>
       <div style="justify-content:center"><button style="background-color: #ffcc33; color: #261c19;" mat-button mat-raised-button
           (click)="gotoProfileHome()">UPDATE</button>
       </div>

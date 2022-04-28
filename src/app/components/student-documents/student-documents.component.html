@@ -3,51 +3,70 @@
 <!-- Hall Tickets termwise, Income Certificate, Community Certificate, Disability Certificate, PSTM Certificate -->
 <div style="text-align:center; justify-content: center">
 <!-- <form [formGroup]="uploadFormGroup"> -->
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>Hall Ticket</mat-label>
-        <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
-        <mat-icon matSuffix>
-            attach_file
-        </mat-icon>
-    </mat-form-field>
-</div>
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>Income Certificate</mat-label>
-        <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
-        <mat-icon matSuffix>
-            attach_file
-        </mat-icon>
-    </mat-form-field>
-</div>
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>Community Certificate</mat-label>
-        <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
-        <mat-icon matSuffix>
-            attach_file
-        </mat-icon>
-    </mat-form-field>
-</div>
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>Disability Certificate</mat-label>
-        <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
-        <mat-icon matSuffix>
-            attach_file
-        </mat-icon>
-    </mat-form-field>
-</div>
-<div>
-    <mat-form-field appearance="fill">
-        <mat-label>PSTM Certificate</mat-label>
-        <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
-        <mat-icon matSuffix>
-            attach_file
-        </mat-icon>
-    </mat-form-field>
-</div>
+<table>
+    <tr>
+        <td>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Hall Ticket</mat-label>
+                    <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
+                    <mat-icon matSuffix>
+                        attach_file
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Income Certificate</mat-label>
+                    <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
+                    <mat-icon matSuffix>
+                        attach_file
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Community Certificate</mat-label>
+                    <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
+                    <mat-icon matSuffix>
+                        attach_file
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+        </td>
+        <td>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Disability Certificate</mat-label>
+                    <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
+                    <mat-icon matSuffix>
+                        attach_file
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>PSTM Certificate</mat-label>
+                    <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000">
+                    <mat-icon matSuffix>
+                        attach_file
+                    </mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>First Graduate Certificate</mat-label>
+                    <input id="ifscCode" autofocus matInput mask="SSSS0000000">
+                    <mat-icon matSuffix>
+                        attach_file
+                    </mat-icon>
+                </mat-form-field>
+              </div>
+        </td>
+    </tr>
+</table>
+
+
 <button style="background-color: #228B22; color: #fff;" mat-button mat-raised-button (click)="gotoProfileHome()">SUBMIT</button>
 <!-- </form> -->
 </div>

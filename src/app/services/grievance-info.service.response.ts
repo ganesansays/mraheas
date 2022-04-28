@@ -8,5 +8,6 @@ export interface Grievance {
     grievance:    string;
     document:      string;
     status:          number;
+    color: string;
 }
 

@@ -24,22 +24,22 @@
         <div style="font-size: 25px; margin-bottom: 15px; width: 800px">
             <mat-grid-list cols="3" style="margin-top: 5px;" rowHeight="10rem">
                 <mat-grid-tile>
-                    <div style="font-size:25px; padding:15px; font-weight: bold;">2000</div>
+                    <div style="font-size:25px; padding:15px; font-weight: bold;">8324</div>
                     <div
-                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: red">
-                        PENDING</div>
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: white">
+                        TOTAL</div>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <div style="font-size:25px; padding:15px; font-weight: bold;">3023</div>
                     <div
-                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: orange">
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: green">
                         APPROVED</div>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <div style="font-size:25px; padding:15px; font-weight: bold;">1231</div>
                     <div
-                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: green">
-                        DISBURSED</div>
+                        style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: red">
+                        REJECTED</div>
                 </mat-grid-tile>
             </mat-grid-list>
         </div>
@@ -171,7 +171,7 @@
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr [hidden]="!isFiltered" mat-header-row *matHeaderRowDef="['blank', 'blank', 'blank', 'blank', 'school-filter', 'year-filter', 'status-filter', 'blank']"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.redrow]="row.color == 'red'"></tr>
         </table>
     </div>
     <mat-paginator 

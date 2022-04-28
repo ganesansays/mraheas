@@ -61,8 +61,8 @@ export class EducationDepartmentInspectionComponent implements OnInit {
       ngOnInit(): void {
         this.studentsInfo.subscribe(result => {
           this.dataSource.data = result.disbursmentInfo;
-          this.dataSource.filterPredicate = this.createFilter();
-          this.dataSource.filter = '{"term1Status" : "disbursed"}';
+          // this.dataSource.filterPredicate = this.createFilter();
+          // this.dataSource.filter = '{"term1Status" : "disbursed"}';
         })
       }
     

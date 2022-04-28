@@ -13,7 +13,8 @@
             "datetime": "01-JAN-2022",
             "batch": "2024",
             "term": 1,
-            "attendence": 100
+            "attendence": 100,
+            "color": "red"
         },
         {
             "name": "Saira Banu",
@@ -28,7 +29,8 @@
             "datetime": "01-JAN-2022",
             "batch": "2024",
             "term": 1,
-            "attendence": 85
+            "attendence": 85,
+            "color": "red"
         },
         {
             "name": "Saira Banu",
@@ -41,7 +43,8 @@
             "accountNumber": "XXXXXXXXXXXX2345",
             "datetime": "01-JAN-2022",
             "batch": "2024",
-            "term": 1
+            "term": 1,
+            "color": "red"
         },
         {
             "name": "Thamizh Mozhi",

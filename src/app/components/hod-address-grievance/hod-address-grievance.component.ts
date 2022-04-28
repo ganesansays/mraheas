@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { GrievanceService } from 'src/app/services/grievances.service';
+import { ApprovalStudentMessageComponent } from '../approval-student-message/approval-student-message.component';
+import { ResolveMessageComponent } from '../resolve-message/resolve-message.component';
 
 @Component({
   selector: 'app-hod-address-grievance',
@@ -10,7 +13,7 @@ import { GrievanceService } from 'src/app/services/grievances.service';
 })
 export class HodAddressGrievanceComponent implements OnInit {
 
-  constructor(private router:Router, private grievanceInfo : GrievanceService) { }
+  constructor(private router:Router, private grievanceInfo : GrievanceService, private _snackBar: MatSnackBar) { }
 
   grievances = this.grievanceInfo.getGrievances();
   dataSource = new MatTableDataSource();
@@ -26,6 +29,13 @@ export class HodAddressGrievanceComponent implements OnInit {
   logout() {
     localStorage.setItem('user', '');
     this.router.navigate(['']);
+  }
+
+  resolve() {
+    this._snackBar.openFromComponent(ResolveMessageComponent, {
+      duration: 2000
+    });
+    return false;
   }
 
 }

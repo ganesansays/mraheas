@@ -14,6 +14,7 @@ export interface DisbursmentInfo {
     term2Status:   string;
     accountNumber: string;
     select: boolean;
+    color: string;
 }
 
 export interface FilterInfo {

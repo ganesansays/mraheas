@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { StudentInfoService } from 'src/app/services/student-info.service';
 import { ApprovalMessageComponent } from '../approval-message/approval-message.component';
+import { ApprovalStudentMessageComponent } from '../approval-student-message/approval-student-message.component';
 
 @Component({
   selector: 'app-education-department-emis-approval',
@@ -61,8 +62,8 @@ export class EducationDepartmentEmisApprovalComponent implements OnInit {
   ngOnInit(): void {
     this.studentsInfo.subscribe(result => {
       this.dataSource.data = result.disbursmentInfo;
-      this.dataSource.filterPredicate = this.createFilter();
-      this.dataSource.filter = '{"term1Status" : "disbursed"}';
+      // this.dataSource.filterPredicate = this.createFilter();
+      // this.dataSource.filter = '{"term1Status" : "disbursed"}';
     })
   }
 
@@ -110,7 +111,7 @@ export class EducationDepartmentEmisApprovalComponent implements OnInit {
   }
 
   approve() {
-    this._snackBar.openFromComponent(ApprovalMessageComponent, {
+    this._snackBar.openFromComponent(ApprovalStudentMessageComponent, {
       duration: 2000
     });
     return false;

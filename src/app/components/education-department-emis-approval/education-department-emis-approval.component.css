@@ -61,3 +61,7 @@ td, tr {
 .mat-header-row {
     min-height: 10px;
 }
+
+.redrow {
+    background-color: red !important;
+}

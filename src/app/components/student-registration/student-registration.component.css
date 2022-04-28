@@ -101,3 +101,7 @@ td, tr {
     padding: 2px;
     font-size:medium;
 }
+
+.example-margin {
+    margin: 10px;
+}

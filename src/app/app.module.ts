@@ -40,6 +40,8 @@ import { EducationDepartmentEmisApprovalComponent } from './components/education
 import { StudentGrievanceComponent } from './components/student-grievance/student-grievance.component';
 import { HodAddressGrievanceComponent } from './components/hod-address-grievance/hod-address-grievance.component';
 import { HodDashboardComponent } from './components/hod-dashboard/hod-dashboard.component';
+import { ApprovalStudentMessageComponent } from './components/approval-student-message/approval-student-message.component';
+import { ResolveMessageComponent } from './components/resolve-message/resolve-message.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { HodDashboardComponent } from './components/hod-dashboard/hod-dashboard.
     EducationDepartmentEmisApprovalComponent,
     StudentGrievanceComponent,
     HodAddressGrievanceComponent,
-    HodDashboardComponent
+    HodDashboardComponent,
+    ApprovalStudentMessageComponent,
+    ResolveMessageComponent
   ],
   imports: [
     BrowserModule,

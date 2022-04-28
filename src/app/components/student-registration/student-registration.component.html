@@ -52,7 +52,7 @@
       <table>
         <tr>
           <td>
-            <div style="text-align: left; margin-top: 25px; margin-bottom: 35px">
+            <div style="text-align: left; margin-top: 10px; margin-bottom: 10px">
               <label class="example-margin" style="margin-right: 15px;">EMIS Number available:</label>
               <mat-radio-group formControlName="emisNumberAvailable">
                 <mat-radio-button style="margin-right: 15px" class="example-margin" value="yes">Yes</mat-radio-button>
@@ -145,7 +145,7 @@
                 <input matInput formControlName="courseTenure" autocomplete="off">
               </mat-form-field>
             </div>
-            <div style="text-align: left; margin-top: 35px; margin-bottom: 35px">
+            <div style="text-align: left; margin-top: 35px; margin-bottom: 15px">
               <mat-checkbox class="example-margin" >
                 Differently abled
               </mat-checkbox>
@@ -163,11 +163,16 @@
     <form [formGroup]="studentSchoolFormGroup">
       <div class="student-info-table-container">
         <section class="example-section" style="margin: 15px">
-          <mat-checkbox
+          <!-- <mat-checkbox
               class="example-margin"
               >
             RTE Enrolled
-          </mat-checkbox>
+          </mat-checkbox> -->
+          <mat-radio-group name="depttype">
+            RTE enrolled:
+            <mat-radio-button class="example-margin" [value]="'yes'">Yes</mat-radio-button>
+            <mat-radio-button class="example-margin" [value]="'no'">No</mat-radio-button>
+        </mat-radio-group>
         </section>
         <table mat-table [dataSource]="schoolInfo" class="mat-elevation-z2">
           <ng-container matColumnDef="Year">
@@ -367,7 +372,7 @@
     <div class="done">
       <p><span>Dear Selvi Thamizh Mozhi,</span></p>
       <p>Thank you for registering with your details!</p>
-      <p>We will inform you after the verification from your college.</p>
+      <p>We will inform you by SMS (99999 12345) after the verification from the school education department.</p>
       <button style="background-color: #FF0000; color: #fff;" mat-button mat-raised-button (click)="logout(stepper)">Logout</button>
     </div>
   </mat-step>

@@ -136,7 +136,7 @@
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr class="filterRow" [hidden]="!isFiltered" mat-header-row *matHeaderRowDef="['blank', 'year-filter', 'blank', 'blank', 'year-filter', 'blank', 'status-filter', 'blank', 'blank', 'blank']"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.redrow]="row.color == 'red' && row.term1Status == 'Not Approved'"></tr>
         </table>
     </div>
     <mat-paginator 

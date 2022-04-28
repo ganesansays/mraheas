@@ -12,7 +12,8 @@
             "mobileNumber": "8750982445",
             "grievance": "Proin placerat sapien ac augue imperdiet, eu ullamcorper nunc tempor. Fusce finibus ligula metus, sit amet hendrerit massa iaculis sit amet. Curabitur venenatis risus magna, sit amet bibendum felis vulputate sit amet. Nulla a felis vitae velit porttitor ultricies eget eget urna. Morbi lacus neque, luctus non auctor sit amet, consectetur et felis. Sed aliquam lectus at lorem tempus, in vestibulum ligula auctor. Duis sodales turpis non quam eleifend, ac gravida neque elementum. Donec accumsan urna molestie nulla consectetur pellentesque sit amet sit amet tellus. Nunc pharetra accumsan finibus. Maecenas nulla lorem, gravida vitae suscipit aliquet, euismod non quam. Curabitur enim nibh, congue ut enim in, malesuada interdum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent malesuada viverra efficitur. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;",
             "document": "https://mraheas.web.app/",
-            "status": "open"
+            "status": "open",
+            "color": "red"
         },
         {
             "name": "Tamizh Mozhi",

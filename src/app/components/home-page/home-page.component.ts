@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.setItem('user', '');
-    this.router.navigate(['']); 
+    // this.router.navigate(['']); 
   }
 
   ngAfterViewInit() {

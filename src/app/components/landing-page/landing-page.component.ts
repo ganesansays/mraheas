@@ -12,7 +12,7 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.setItem('user', '');
-    this.router.navigate(['']);
+    // this.router.navigate(['homePage']);
   }
 
   ngAfterViewInit() {
@@ -20,7 +20,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   navigateToLogin() {
-    this.router.navigate(['']);
+    this.router.navigate(['homePage']);
   }
 
 }

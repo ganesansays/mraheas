@@ -84,8 +84,8 @@ import { ResolveMessageComponent } from './components/resolve-message/resolve-me
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'landingPage', component: LandingPageComponent },
-      { path: '', component: HomePageComponent },
+      { path: '', component: LandingPageComponent },
+      { path: 'homePage', component: HomePageComponent },
       { path: 'studentRegistration', component: StudentRegistrationComponent, canActivate : [AuthGuardService] },
       { path: 'updateStudentProfile', component: StudentProfileComponent },
       { path: 'studentDisbursement', component: StudentDisbursementComponent },

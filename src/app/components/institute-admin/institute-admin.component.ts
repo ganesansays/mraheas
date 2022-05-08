@@ -27,7 +27,7 @@ export class InstituteAdminComponent implements OnInit {
   // "year": 2022,
   // "term1Status": "Approved",
   // "term2Status": "Not Approved" 
-  displayedColumns = ['Select', 'Year','Aadhaar No.', 'Name', 'Batch', 'AttendencePercentage', 'Status', 'Remarks', 'Account Number', 'HallTicket']
+  displayedColumns = ['Select', 'Year','Aadhaar No.', 'Name', 'Batch', 'AttendencePercentage', 'Status', 'Remarks', 'Account Number']
 
   constructor(private studentInfoService: StudentInfoService, private router: Router, private _snackBar: MatSnackBar) { 
 

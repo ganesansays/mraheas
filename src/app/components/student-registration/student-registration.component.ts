@@ -47,6 +47,10 @@ export class StudentRegistrationComponent implements OnInit {
   selectedInstitution : any;
   selectedTypeOfCollege : any;
   aadharNumberValue: any;
+  educationCategory : any;
+  selectedEducationCategory : any;
+  selectedOtherScholarship : any;
+  selectedCommunity : any;
 
   otpSent=false;
   sendingOtp=false;
@@ -141,7 +145,8 @@ export class StudentRegistrationComponent implements OnInit {
       graduatingYear: [''],
       emailId: [''],
       course: [''],
-      courseTenure: ['']
+      courseTenure: [''],
+      educationCategory : ['']
     });
 
   }
@@ -275,6 +280,9 @@ export class StudentRegistrationComponent implements OnInit {
     setTimeout(()=>{ // this will make the execution after the above boolean has changed
       this.router.navigate(['']);
     },0); 
+
+    localStorage.setItem('user', '');
+    this.router.navigate(['']);
     
   }
 
@@ -303,5 +311,5 @@ export class StudentRegistrationComponent implements OnInit {
     {"standard": "12th"},
   ]
 
-  schoolInfoDisplayedColumns = ['Year', 'District', 'School']
+  schoolInfoDisplayedColumns = ['Year', 'District', 'School', 'Year of passing', 'Same as above']
 }

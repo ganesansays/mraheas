@@ -3,8 +3,8 @@
     <mat-icon aria-hidden="false" matTooltip="Logout" aria-label="Logout" (click)="logout()" style="margin-left:1px;margin-right:5px;float: right;color: red">logout</mat-icon>
     <!-- <button mat-flat-button color="primary" style="margin-right: 10px" (click)="navigateToDisbursement()">DISBURSE PAYMENT</button> -->
     <span [hidden]="type!='CEO'">
-    <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentInspection'" style="float:right;margin-left:1px;margin-right:5px; background-color: #ffcc33; color: #261c19; width: 110px">INSPECTION</button>
-    <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentCredCheck'" style="float:right;margin-left:1px;margin-right:5px; background-color: #ffcc33; color: #261c19; width: 170px">SCHOOL CRED CHECK</button>
+    <!-- <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentInspection'" style="float:right;margin-left:1px;margin-right:5px; background-color: #ffcc33; color: #261c19; width: 110px">INSPECTION</button>
+    <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentCredCheck'" style="float:right;margin-left:1px;margin-right:5px; background-color: #ffcc33; color: #261c19; width: 170px">SCHOOL CRED CHECK</button> -->
     <button mat-flat-button color="primary" [routerLink]="'/educationDepartmentApproveStudent'" style="float:right;margin-left:1px;margin-right:5px; background-color: #ffcc33; color: #261c19; width: 160px">APPROVE STUDENTS</button>
     </span>
     <span [hidden]="type=='CEO'">
@@ -39,7 +39,7 @@
                     <div style="font-size:25px; padding:15px; font-weight: bold;">1231</div>
                     <div
                         style="font-size:25px; margin:15px; font-weight: bold;padding: 25px; background-color: black;color: red">
-                        REJECTED</div>
+                        PENDING</div>
                 </mat-grid-tile>
             </mat-grid-list>
         </div>

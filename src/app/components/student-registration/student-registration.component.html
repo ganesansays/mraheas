@@ -1,7 +1,7 @@
 <div class="stepper-header"><b>STUDENT REGISTRATION</b></div>
 <mat-divider></mat-divider>
 <mat-stepper linear #stepper (selectionChange)="onChange($event)" style="text-align: center!important; justify-content: center!important;">
-  <mat-step [stepControl]="firstFormGroup">
+  <!-- <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel><span class="steplabel">Login using your Aadhaar</span></ng-template>
       <div class="mat-h2">Please provide your aadhaar number to start registration.</div>
@@ -45,11 +45,52 @@
         </div>
       </div>
     </form>
-  </mat-step>
+  </mat-step> -->
   <mat-step [stepControl]="emisNumberFormGroup" [completed]="eligibleForScholorship">
     <form [formGroup]="emisNumberFormGroup">
       <ng-template matStepLabel><span class="steplabel">Institution details</span></ng-template>
       <table>
+        <tr>
+          <td>
+            <mat-form-field #aadhaarNumber appearance="fill">
+              <mat-label>Aadhaar Number</mat-label>
+              <input class="mat-h1" #aadhaarNumber matInput placeholder="____-____-____"
+                autofocus>
+              <mat-error>Please enter a valid Aadhaar Number</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <div style="text-align: left; margin-left: 15px; margin-top: 15px; margin-bottom: 10px">
+              <mat-form-field appearance="fill">
+                <mat-label>Education Category</mat-label>
+                <mat-select [(value)]="selectedEducationCategory">
+                  <mat-select-trigger>
+                    {{selectedEducationCategory}}
+                  </mat-select-trigger>
+                  <mat-option value="Medicine">Medicine</mat-option>
+                  <mat-option value="Engineering">Engineering</mat-option>
+                  <mat-option value="Arts & Sciences">Arts & Sciences</mat-option>
+                  <mat-option value="Polytechnic">Polytechnic</mat-option>
+                  <mat-option value="ITI">ITI</mat-option>
+                  <mat-option value="Law">Law</mat-option>
+                  <mat-option value="Agriculture">Agriculture</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </td>
+          <td>
+            <div [hidden]="selectedEducationCategory == 'Polytechnic' || !selectedEducationCategory">
+              <mat-form-field appearance="fill">
+                <mat-label [hidden]="selectedEducationCategory != 'ITI'">Roll Number (10th)</mat-label>
+                <mat-label [hidden]="selectedEducationCategory == 'ITI'">Roll Number (12th)</mat-label>
+                <input matInput autocomplete="off" >
+              </mat-form-field>
+            </div>
+          </td>
+        </tr>
         <tr>
           <td>
             <div style="text-align: left; margin-top: 10px; margin-bottom: 10px">
@@ -74,6 +115,18 @@
         </tr>
         <tr>
           <td style="padding: 15px;">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="mobileNumber" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Father's/mother's/Guardians name</mat-label>
+                <input matInput formControlName="mobileNumber" autocomplete="off">
+              </mat-form-field>
+            </div>
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>Mobile Number</mat-label>
@@ -103,7 +156,7 @@
             </div>
             <div>
               <mat-form-field appearance="fill">
-                <mat-label>Graduating year</mat-label>
+                <mat-label>Joining year</mat-label>
                 <input matInput formControlName="emailId" autocomplete="off"
                   pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
                 <mat-error>Please enter a email id</mat-error>
@@ -118,6 +171,27 @@
             </div> -->
           </td>
           <td>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Date of birth</mat-label>
+                <input matInput formControlName="mobileNumber" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Community</mat-label>
+                <mat-select [(value)]="selectedCommunity">
+                  <mat-select-trigger>
+                    {{selectedCommunity}}
+                  </mat-select-trigger>
+                  <mat-option value="BC">BC</mat-option>
+                  <mat-option value="MBC">MBC</mat-option>
+                  <mat-option value="SC">SC</mat-option>
+                  <mat-option value="ST">ST</mat-option>
+                  <mat-option value="OC">OC</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>Email ID</mat-label>
@@ -145,11 +219,31 @@
                 <input matInput formControlName="courseTenure" autocomplete="off">
               </mat-form-field>
             </div>
-            <div style="text-align: left; margin-top: 35px; margin-bottom: 15px">
-              <mat-checkbox class="example-margin" >
-                Differently abled
-              </mat-checkbox>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>College Roll Number</mat-label>
+                <input matInput formControlName="emailId" autocomplete="off"
+                  >
+                <mat-error>Please enter a email id</mat-error>
+              </mat-form-field>
             </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <mat-form-field appearance="fill">
+              <mat-label>Other Scholarship received</mat-label>
+              <mat-select [(value)]="selectedOtherScholarship">
+                <mat-select-trigger>
+                  {{selectedOtherScholarship}}
+                </mat-select-trigger>
+                <mat-option value="Moovalur Ramamritham Higher Education Assurance Scheme">Moovalur Ramamritham Higher Education Assurance Scheme</mat-option>
+                <mat-option value="Fee Waiver for Govt School students (7.5%)">Fee Waiver for Govt School students (7.5%)</mat-option>
+                <mat-option value="Post Matric for First Graduate Students">Post Matric for First Graduate Students</mat-option>
+                <mat-option value="Incentive Scheme for PhD students">Incentive Scheme for PhD students</mat-option>
+                <mat-option value="Post Matric Scholarship Colleges">Post Matric Scholarship Colleges</mat-option>
+              </mat-select>
+            </mat-form-field>
           </td>
         </tr>
       </table>
@@ -162,22 +256,17 @@
     <ng-template matStepLabel><span class="steplabel">School Info</span></ng-template>
     <form [formGroup]="studentSchoolFormGroup">
       <div class="student-info-table-container">
-        <section class="example-section" style="margin: 15px">
-          <!-- <mat-checkbox
-              class="example-margin"
-              >
-            RTE Enrolled
-          </mat-checkbox> -->
+        <!-- <section class="example-section" style="margin: 15px">
           <mat-radio-group name="depttype">
             RTE enrolled:
             <mat-radio-button class="example-margin" [value]="'yes'">Yes</mat-radio-button>
             <mat-radio-button class="example-margin" [value]="'no'">No</mat-radio-button>
         </mat-radio-group>
-        </section>
+        </section> -->
         <table mat-table [dataSource]="schoolInfo" class="mat-elevation-z2">
           <ng-container matColumnDef="Year">
             <th mat-header-cell *matHeaderCellDef>
-              Year
+              Standard
             </th>
             <td mat-cell *matCellDef="let row">
               {{row.standard}}
@@ -200,25 +289,45 @@
               </mat-form-field>
             </td>
           </ng-container>
-          <ng-container matColumnDef="School">
+          <ng-container matColumnDef="School" >
             <th mat-header-cell *matHeaderCellDef>
               School
             </th>
-            <td mat-cell *matCellDef="let row">
+            <td mat-cell *matCellDef="let row" >
               <mat-form-field appearance="fill">
                 <mat-label>School</mat-label>
-                <input matInput style="width:5ch">
+                <input matInput>
               </mat-form-field>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Year of passing">
+            <th mat-header-cell *matHeaderCellDef>
+              Year of passing
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-form-field appearance="fill" style="width:140px">
+                <mat-label>Year of passing</mat-label>
+                <input matInput style="width:15px">
+              </mat-form-field>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Same as above">
+            <th mat-header-cell *matHeaderCellDef>
+              As above
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <div [hidden]="row.standard == '6th'">
+                <mat-checkbox class="example-margin"></mat-checkbox></div>
             </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="schoolInfoDisplayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: schoolInfoDisplayedColumns;"></tr>
         </table>
       </div>
-      <button style="background-color: #ffcc33; color: #261c19;margin: 15px;" mat-button mat-raised-button matStepperNext>PROCEED TO UPLOAD DOCUMENTS</button>
+      <button style="background-color: #ffcc33; color: #261c19;margin: 15px;" mat-button mat-raised-button matStepperNext>PROCEED TO BANK DETAILS</button>
     </form>
   </mat-step>
-  <mat-step>
+  <!-- <mat-step>
     <table>
       <tr>
           <td>
@@ -282,7 +391,7 @@
       </tr>
   </table>
   <button style="background-color: #ffcc33; color: #261c19;margin: 15px;" mat-button mat-raised-button matStepperNext>PROCEED TO BANK DETAILS</button>
-  </mat-step>
+  </mat-step> -->
   <mat-step [stepControl]="thirdFormGroup">
     <div class="mat-h2">Please provide your bank details to enroll you for scholarship.</div>
     <table>
@@ -290,39 +399,50 @@
         <td style="padding-right: 15px;">
           <form [formGroup]="thirdFormGroup">
             <ng-template matStepLabel><span class="steplabel">Provide bank details</span></ng-template>
+            <div [attr.disabled]="true">
+              <mat-form-field appearance="fill">
+                <mat-label>Bank Name</mat-label>
+                <input matInput readonly [value]="bankName">
+              </mat-form-field>
+            </div>
             <div>
               <mat-form-field appearance="fill">
                 <mat-label>IFSC Code</mat-label>
                 <input id="ifscCode" autofocus matInput formControlName="firstCtrl" mask="SSSS0000000"
-                  (focusout)="fetchIfscInfo()">
+                  >
                 <mat-icon matSuffix (click)="fetchIfscInfo();forthFormDirective.resetForm();forthFormGroup.reset();">
                   search
                 </mat-icon>
                 <mat-error>Please enter a valid IFSC code</mat-error>
               </mat-form-field>
             </div>
-            <div [hidden]="!ifscFetching">
-              <mat-spinner></mat-spinner>
-            </div>
-            <div [attr.disabled]="true" [hidden]="ifscFetching">
+            <div>
               <mat-form-field appearance="fill">
-                <mat-label>Bank Name</mat-label>
-                <input matInput readonly [value]="bankName">
+                <mat-label>Account number</mat-label>
+                <input #accountNumber matInput formControlName="thirdCtrl" type="password" mask="AAAAAAAAAA999999"
+                  [readonly]="bankName == ''">
+                <mat-error>Please enter a valid Account number</mat-error>
               </mat-form-field>
             </div>
+            
           </form>
         </td>
         <td style="padding-right: 15px;">
           <form [formGroup]="forthFormGroup" #forthFormDirective="ngForm">
             <div>
-              <div>
+              <div [attr.disabled]="true">
                 <mat-form-field appearance="fill">
-                  <mat-label>Account number</mat-label>
-                  <input #accountNumber matInput formControlName="thirdCtrl" type="password" mask="AAAAAAAAAA999999"
-                    [readonly]="bankName == ''">
-                  <mat-error>Please enter a valid Account number</mat-error>
+                  <mat-label>Branch</mat-label>
+                  <input matInput readonly [value]="bankName">
                 </mat-form-field>
               </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Account Holder's Name</mat-label>
+                  <input matInput formControlName="fifthCtrl" [readonly]="bankName == ''">
+                  <mat-error>Please enter account holder's name</mat-error>
+                </mat-form-field>    
+              </div> 
               <div>
                 <mat-form-field appearance="fill">
                   <mat-label>Re-enter account number</mat-label>
@@ -343,14 +463,7 @@
       </tr>
       <tr>
         <td style="padding-right: 15px;">
-          <div>
-            <mat-form-field appearance="fill">
-              <mat-label>Account Holder's Name</mat-label>
-              <input matInput formControlName="fifthCtrl" [readonly]="bankName == ''">
-              <mat-error>Please enter account holder's name</mat-error>
-            </mat-form-field>
-
-          </div>
+          
         </td>
       </tr>
     </table>

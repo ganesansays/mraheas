@@ -24,13 +24,15 @@ export class LoginComponent implements OnInit {
 
       if(params['url'].includes('educationDepartmentAssessment')) {
         this.isEduDeptLogin = true;
-        this.departmentName = "EDU. DEPT.";
+        this.departmentName = "SCHOOL EDU. DEPT.";
       } else if (params['url'].includes('instituteAnalytics')) {
         this.departmentName = "COLLEGE";
       } else if (params['url'].includes('socialWelfare')) {
         this.departmentName = "SOCIAL WELFARE DEPT.";
       } else if (params['url'].includes('hodDashboard')) {
         this.departmentName = "HOD";
+      } else if (params['url'].includes('studentRegistration')) {
+        this.departmentName = "STUDENT REGISTRATION LOGIN";
       }
       console.log(params['url']);
       console.log(this.isEduDeptLogin);

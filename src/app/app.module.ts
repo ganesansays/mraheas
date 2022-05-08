@@ -86,7 +86,7 @@ import { ResolveMessageComponent } from './components/resolve-message/resolve-me
     RouterModule.forRoot([
       { path: 'landingPage', component: LandingPageComponent },
       { path: '', component: HomePageComponent },
-      { path: 'studentRegistration', component: StudentRegistrationComponent },
+      { path: 'studentRegistration', component: StudentRegistrationComponent, canActivate : [AuthGuardService] },
       { path: 'updateStudentProfile', component: StudentProfileComponent },
       { path: 'studentDisbursement', component: StudentDisbursementComponent },
       { path: 'studentDocuments', component: StudentDocumentsComponent },

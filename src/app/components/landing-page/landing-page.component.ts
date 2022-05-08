@@ -11,6 +11,8 @@ export class LandingPageComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem('user', '');
+    this.router.navigate(['']);
   }
 
   ngAfterViewInit() {

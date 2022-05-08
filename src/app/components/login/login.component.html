@@ -2,15 +2,15 @@
   <mat-card-title>{{departmentName}}&nbsp;LOGIN</mat-card-title>
   <mat-card-content>
     <form [formGroup]="form" (ngSubmit)="submit()">
-      <!-- <div [hidden]="!isEduDeptLogin">
+      <div [hidden]="!isEduDeptLogin">
         <section class="example-section">
           <label class="example-margin">Department:</label>
           <mat-radio-group name="depttype" formControlName="type" [(ngModel)]="value" [formGroup]="form">
-            <mat-radio-button class="example-margin" [value]="'CEO'">CEO/DC</mat-radio-button>
-            <mat-radio-button class="example-margin" [value]="'DEAN'">Dean/Director</mat-radio-button>
+            <mat-radio-button class="example-margin" [value]="'CEO'">CEO</mat-radio-button>
+            <mat-radio-button class="example-margin" [value]="'DEAN'">HM</mat-radio-button>
           </mat-radio-group>
         </section>
-      </div> -->
+      </div>
       
       <p>
         <mat-form-field>

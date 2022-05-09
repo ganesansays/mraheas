@@ -1,7 +1,7 @@
 <div class="stepper-header"><b>STUDENT REGISTRATION</b></div>
 <mat-divider></mat-divider>
 <mat-stepper linear #stepper (selectionChange)="onChange($event)" style="text-align: center!important; justify-content: center!important;">
-  <!-- <mat-step [stepControl]="firstFormGroup">
+  <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel><span class="steplabel">Login using your Aadhaar</span></ng-template>
       <div class="mat-h2">Please provide your aadhaar number to start registration.</div>
@@ -11,7 +11,7 @@
           autofocus>
         <mat-error>Please enter a valid Aadhaar Number</mat-error>
       </mat-form-field>
-      <div [hidden]="!otpSent">OTP is sent to your mobile nuber XXX-XXX-3456</div>
+      <!-- <div [hidden]="!otpSent">OTP is sent to your mobile nuber XXX-XXX-3456</div>
       <div style="margin-top:10px">
         <div [hidden]="!sendingOtp">
           <mat-spinner></mat-spinner>
@@ -27,9 +27,9 @@
           <span [hidden]="timeLeft == 0 || !(otpSent || timeLeft > 0)">will be enabled in <span
               class="numberCircle">{{timeLeft}}</span>seconds</span>
         </div>
-      </div>
+      </div> -->
     </form>
-    <form [formGroup]="otpFormGroup">
+    <!-- <form [formGroup]="otpFormGroup">
       <div [hidden]="!otpSent">
         <mat-form-field appearance="fill">
           <mat-label>OTP</mat-label>
@@ -44,13 +44,17 @@
           <mat-spinner></mat-spinner>
         </div>
       </div>
-    </form>
-  </mat-step> -->
+    </form> -->
+    <div>
+      <button style="background-color: #ffcc33; color: #261c19;" mat-button mat-raised-button [disabled]="!otpFormGroup.valid"
+        (click)="verifyOtp(stepper)">PROCEED</button>
+    </div>
+  </mat-step>
   <mat-step [stepControl]="emisNumberFormGroup" [completed]="eligibleForScholorship">
     <form [formGroup]="emisNumberFormGroup">
       <ng-template matStepLabel><span class="steplabel">Institution details</span></ng-template>
       <table>
-        <tr>
+        <!-- <tr>
           <td>
             <mat-form-field #aadhaarNumber appearance="fill">
               <mat-label>Aadhaar Number</mat-label>
@@ -59,7 +63,7 @@
               <mat-error>Please enter a valid Aadhaar Number</mat-error>
             </mat-form-field>
           </td>
-        </tr>
+        </tr> -->
         
         <tr>
           <td>

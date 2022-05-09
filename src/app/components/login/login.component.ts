@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       } else if (params['url'].includes('hodDashboard')) {
         this.departmentName = "HOD";
       } else if (params['url'].includes('studentRegistration')) {
-        this.departmentName = "STUDENT REGISTRATION LOGIN";
+        this.departmentName = "STUDENT REGISTRATION";
       }
       console.log(params['url']);
       console.log(this.isEduDeptLogin);

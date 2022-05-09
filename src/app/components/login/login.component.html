@@ -11,18 +11,28 @@
           </mat-radio-group>
         </section>
       </div>
-      
-      <p>
-        <mat-form-field>
-          <input type="text" matInput placeholder="Username" formControlName="username">
-        </mat-form-field>
-      </p>
 
-      <p>
+      <div [hidden]="departmentName != 'STUDENT REGISTRATION'">
         <mat-form-field>
-          <input type="password" matInput placeholder="Password" formControlName="password">
+          <input type="text" matInput placeholder="College Username" formControlName="username"/>
         </mat-form-field>
-      </p>
+      </div>
+      <div [hidden]="departmentName == 'STUDENT REGISTRATION'">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Username" formControlName="username"/>
+        </mat-form-field>
+      </div>
+
+      <div [hidden]="departmentName != 'STUDENT REGISTRATION'">
+        <mat-form-field>
+          <input type="text" matInput placeholder="College Password" formControlName="password"/>
+        </mat-form-field>
+      </div>
+      <div [hidden]="departmentName == 'STUDENT REGISTRATION'">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Password" formControlName="password"/>
+        </mat-form-field>
+      </div>
 
       <p *ngIf="error" class="error">
         {{ error }}
